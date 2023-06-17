@@ -21,7 +21,11 @@ public class CategoryDAO {
 
     public List<Category> getAll() {
 
-        String sql = "SELECT * FROM Category";//
+        String sql = "SELECT [categoryId]\n"
+                + "      ,[categoryName]\n"
+                + "      ,[categoryIcon]\n"
+                + "	  ,(SELECT COUNT(productId) from product p WHERE p.categoryId = c.categoryId) as numberOfProduct\n"
+                + "  FROM [PRJShop].[dbo].[Category] c";//
 
         try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
             ResultSet rs = ps.executeQuery();
@@ -31,6 +35,8 @@ public class CategoryDAO {
                 Category s = Category.builder()
                         .categoryId(rs.getInt("categoryId"))
                         .categoryName(rs.getString("categoryName"))
+                        .categoryIcon(rs.getString("categoryIcon"))
+                        .numberOfProduct(rs.getInt("numberOfProduct"))
                         .build();
                 list.add(s);
             }
@@ -41,7 +47,6 @@ public class CategoryDAO {
         return null;
     }
 
-    
     public static void main(String[] args) {
         System.out.println(new CategoryDAO().getAll());
     }
