@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package entity;
-
 import java.sql.Date;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,12 +17,11 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class AccountDetail {
-    
-    private int accountDetailId;
+public class AccountContact {
+    private int accountContactId;
     private int accountId;
-    private String accountDetailName;
-    private String accountDetailAvatar;
-    private Date accountDetailDob;
-    private Date accountDetailDoc;
+    private String accountContactAddress;
+    private String accountContactName;
+    private String accountContactMobile;
+    private boolean accountContactDefault;
 }
