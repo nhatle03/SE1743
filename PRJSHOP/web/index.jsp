@@ -185,7 +185,9 @@
                             <div class="text-center py-4">
                                 <a class="h6 text-decoration-none product-name" href="product-detail?productId=${p.productId}">${p.productName}</a>
                                 <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>${p.productPrice}VND</h5>
+                                    <fmt:formatNumber value="${p.productPrice}" pattern="#,###.00" var="formattedPrice" />
+
+                                    <h1>Formatted Price: ${formattedPrice}</h1>
                                     <!--<h6 class="text-muted ml-2"><del>$123.00</del></h6>-->
                                 </div>
                                 <div class="d-flex align-items-center justify-content-center mb-1">
@@ -274,25 +276,25 @@
 
         <!-- Footer Start -->
         <%@include file="component/footer.jsp" %>
-    <!-- Footer End -->
+        <!-- Footer End -->
 
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/lib/easing/easing.min.js"></script>
-    <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/lib/easing/easing.min.js"></script>
+        <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
 
-    <!-- Contact Javascript File -->
-    <script src="assets/mail/jqBootstrapValidation.min.js"></script>
-    <script src="assets/mail/contact.js"></script>
+        <!-- Contact Javascript File -->
+        <script src="assets/mail/jqBootstrapValidation.min.js"></script>
+        <script src="assets/mail/contact.js"></script>
 
-    <!-- Template Javascript -->
-    <script src="assets/js/main.js"></script>
-</body>
+        <!-- Template Javascript -->
+        <script src="assets/js/main.js"></script>
+    </body>
 
 </html>
