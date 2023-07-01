@@ -1,5 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,7 +89,8 @@
                             </div>
                             <small class="pt-1">(99 Reviews)</small>
                         </div>
-                        <h3 class="font-weight-semi-bold mb-4">${requestScope.product.productPrice} VND</h3>
+                        <fmt:formatNumber value="${requestScope.product.productPrice}" pattern="#,###" var="formattedPrice" />
+                        <h3 class="font-weight-semi-bold mb-4">${formattedPrice} VND</h3>
                         <!--                        <div class="description">
                                                     <p class="mb-4">Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam stet sit
                                                         clita ea. Sanc ipsum et, labore clita lorem magna duo dolor no sea
@@ -322,7 +324,8 @@
                                 <div class="text-center py-4">
                                     <a class="h6 text-decoration-none" href="product-detail?productId=${p.productId}">${p.productName}</a>
                                     <div class="d-flex align-items-center justify-content-center mt-2">
-                                        <h5>${p.productPrice}</h5>
+                                        <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />
+                                        <h5>${formattedPrice} VND</h5>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-center mb-1">
                                         <small class="fa fa-star text-primary mr-1"></small>

@@ -1,5 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -185,9 +186,9 @@
                             <div class="text-center py-4">
                                 <a class="h6 text-decoration-none product-name" href="product-detail?productId=${p.productId}">${p.productName}</a>
                                 <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <fmt:formatNumber value="${p.productPrice}" pattern="#,###.00" var="formattedPrice" />
+                                    <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />
 
-                                    <h1>Formatted Price: ${formattedPrice}</h1>
+                                    <h5>${formattedPrice} VND</h5>
                                     <!--<h6 class="text-muted ml-2"><del>$123.00</del></h6>-->
                                 </div>
                                 <div class="d-flex align-items-center justify-content-center mb-1">
@@ -250,7 +251,9 @@
                             <div class="text-center py-4">
                                 <a class="h6 text-decoration-none product-name" href="product-detail?productId=${p.productId}">${p.productName}</a>
                                 <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <h5>${p.productPrice}</h5>
+                                    <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />
+
+                                    <h5>${formattedPrice} VND</h5>
                                     <!--<h6 class="text-muted ml-2"><del>$123.00</del></h6>-->
                                 </div>
                                 <div class="d-flex align-items-center justify-content-center mb-1">
