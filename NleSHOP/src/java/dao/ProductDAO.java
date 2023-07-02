@@ -388,6 +388,6 @@ public class ProductDAO {
 
     public static void main(String[] args) {
         String[] i = {"1", "2", "3"};
-        System.out.println(new ProductDAO().getOne(12));
+        System.out.println(new ProductDAO().getListProductPerPage(4, 2, i, "2000000", "5000000"));
     }
 }

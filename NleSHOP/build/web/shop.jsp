@@ -1,5 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -91,7 +92,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-sm-12"> 
-                                    <input type="hidden" id="priceFrom" name="priceFrom" value="123213213">
+                                    <input type="hidden" id="priceFrom" name="priceFrom" value="123123">
                                     <input type="hidden" id="priceTo" name="priceTo" value="12312">
                                 </div>
                             </div>
@@ -118,7 +119,7 @@
                 <!-- Shop Product Start -->
                 <div class="col-lg-9 col-md-8">
                     <div class="row pb-3">
-                        <div class="col-12 pb-1">
+<!--                        <div class="col-12 pb-1">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <div class="">
                                     <div class="btn-group">
@@ -131,7 +132,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         <c:forEach items="${requestScope.lstProduct}" var="p">
                             <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
                                 <div class="product-item bg-light mb-4">
@@ -145,7 +146,10 @@
                                     <div class="text-center py-4">
                                         <a class="h6 text-decoration-none product-name" href="">${p.productName}</a>
                                         <div class="d-flex align-items-center justify-content-center mt-2">
-                                            <h5>${p.productPrice}</h5>
+                                            
+                                            <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />
+
+                                    <h5>${formattedPrice} VND</h5>
                                             <!--<h6 class="text-muted ml-2"><del>$123.00</del></h6>-->
                                         </div>
                                         <div class="d-flex align-items-center justify-content-center mb-1">
@@ -218,8 +222,8 @@
                     start: [${requestScope.priceFrom}, ${requestScope.priceTo}],
                     step: 10000,
                     range: {
-                        'min': [100000],
-                        'max': [1000000]
+                        'min': [1000000],
+                        'max': [10000000]
                     },
                     format: moneyFormat,
                     connect: true

@@ -14,9 +14,9 @@
                     <div class="collapse navbar-collapse" id="navigation">
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="dashboard">
+                                <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="/NleSHOP/?#">
                                     <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
-                                    Nle SHOP
+                                    Nle Shop
                                 </a>
                             </li>
                             <li class="nav-item">

@@ -82,7 +82,7 @@ public class ShopController extends HttpServlet {
         List<Product> lstProduct;
         String href;
         String priceFrom = request.getParameter("priceFrom") == null? "100000" : request.getParameter("priceFrom");
-        String priceTo = request.getParameter("priceTo")  == null? "1000000" : request.getParameter("priceTo");
+        String priceTo = request.getParameter("priceTo")  == null? "10000000" : request.getParameter("priceTo");
         String[] sizeIds = request.getParameterValues("sizeId");
 
         if (categoryId != 0) {
