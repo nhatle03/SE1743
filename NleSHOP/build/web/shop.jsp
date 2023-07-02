@@ -144,7 +144,7 @@
                                         </a>
                                     </div>
                                     <div class="text-center py-4">
-                                        <a class="h6 text-decoration-none product-name" href="">${p.productName}</a>
+                                        <a class="h6 text-decoration-none product-name" href="product-detail?productId=${p.productId}">${p.productName}</a>
                                         <div class="d-flex align-items-center justify-content-center mt-2">
                                             
                                             <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />

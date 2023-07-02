@@ -3,14 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/assets/mail/contact.js</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/assets/js/main.js</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/shop.jsp</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/entity/ProductImgDetail.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/component/footer.jsp</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/assets/js/toast.js</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/controller/OTPConfirmationController.java</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/assets/js/setting-icon.js</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/controller/ShopController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/utils/Mail.java</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/component/header-authen.jsp</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/component/header-category.jsp</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/otp-confirmation.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/const/const.properties</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/entity/AccountContact.java</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/dao/ProductSizeDAO.java</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/entity/Product.java</file>
@@ -21,13 +27,18 @@
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/dao/ProductImgDetailDAO.java</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/product-detail.jsp</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/entity/AccountDetail.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/assets/js/material-dashboard.js</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/sign-in.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/assets/mail/jqBootstrapValidation.min.js</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/dao/AccountDAO.java</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/entity/Account.java</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/dao/AccountDetailDAO.java</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/entity/Category.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/sign-up.jsp</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/dao/ProductDAO.java</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/password-creation.jsp</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/component/header-shop.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/controller/ProductDetailController.java</file>
         </group>
     </open-files>
 </project-private>
