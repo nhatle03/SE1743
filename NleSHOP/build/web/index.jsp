@@ -34,6 +34,120 @@
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
             }
+            
+            .product-name {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+            .card {
+                position: relative;
+                width: 320px;
+                height: 480px;
+                background: #191919;
+                border-radius: 20px;
+                overflow: hidden;
+            }
+
+            .card::before {
+                content: "";
+                position: absolute;
+                top: -50%;
+                width: 100%;
+                height: 100%;
+                background: #ffce00;
+                transform: skewY(345deg);
+                transition: 0.5s;
+            }
+
+            .card:hover::before {
+                top: -70%;
+                transform: skewY(390deg);
+            }
+
+            .card::after {
+                content: "CORSAIR";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                font-weight: 600;
+                font-size: 6em;
+                color: rgba(0, 0, 0, 0.1);
+            }
+
+            .card .imgBox {
+                position: relative;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-top: 20px;
+                z-index: 1;
+            }
+            /*
+            .card .imgBox img {
+                max-width: 100%;
+                
+                transition: .5s;
+            }
+            
+            .card:hover .imgBox img {
+                max-width: 50%;
+                  
+            }
+            */
+            .card .contentBox {
+                position: relative;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                z-index: 2;
+            }
+
+            .card .contentBox h3 {
+                font-size: 18px;
+                color: white;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .card .contentBox .price {
+                font-size: 24px;
+                color: white;
+                font-weight: 700;
+                letter-spacing: 1px;
+            }
+
+            .card .contentBox .buy {
+                position: relative;
+                top: 100px;
+                opacity: 0;
+                padding: 10px 30px;
+                margin-top: 15px;
+                color: #000000;
+                text-decoration: none;
+                background: #ffce00;
+                border-radius: 30px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: 0.5s;
+            }
+
+            .card:hover .contentBox .buy {
+                top: 0;
+                opacity: 1;
+            }
+
+            .mouse {
+                height: 300px;
+                width: auto;
+            }
+
+        
         </style>
     </head>
 
@@ -50,8 +164,8 @@
 
         <!-- Carousel Start -->
         <div class="container-fluid mb-3">
-            <div class="row px-xl-5">
-                <div class="col-lg-8">
+            <div class="row px-xl-0">
+                <div class="col-lg-12" style="padding: 0" >
                     <div id="header-carousel" class="carousel slide carousel-fade mb-30 mb-lg-0" data-ride="carousel">
                         <ol class="carousel-indicators">
                             <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
@@ -60,7 +174,7 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item position-relative active" style="height: 430px;">
-                                <img class="position-absolute w-100 h-100" src="assets/img/carousel-1.jpg" style="object-fit: cover;">
+                                <img class="position-absolute w-100 h-100" src="assets/img/men.jpg" style="object-fit: cover;">
                                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                     <div class="p-3" style="max-width: 700px;">
                                         <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Men Shoes</h1>
@@ -70,7 +184,7 @@
                                 </div>
                             </div>
                             <div class="carousel-item position-relative" style="height: 430px;">
-                                <img class="position-absolute w-100 h-100" src="assets/img/carousel-2.jpg" style="object-fit: cover;">
+                                <img class="position-absolute w-100 h-100" src="assets/img/women.webp" style="object-fit: cover;">
                                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                     <div class="p-3" style="max-width: 700px;">
                                         <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Women Shoes</h1>
@@ -80,7 +194,7 @@
                                 </div>
                             </div>
                             <div class="carousel-item position-relative" style="height: 430px;">
-                                <img class="position-absolute w-100 h-100" src="assets/img/carousel-3.jpg" style="object-fit: cover;">
+                                <img class="position-absolute w-100 h-100" src="assets/img/kid.jpg" style="object-fit: cover;">
                                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                     <div class="p-3" style="max-width: 700px;">
                                         <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown">Kids Shoes</h1>
@@ -92,24 +206,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="product-offer mb-30" style="height: 200px;">
-                        <img class="img-fluid" src="assets/img/offer-1.jpg" alt="">
-                        <div class="offer-text">
-                            <h6 class="text-white text-uppercase">Save 20%</h6>
-                            <h3 class="text-white mb-3">Special Offer</h3>
-                            <a href="" class="btn btn-primary">Shop Now</a>
-                        </div>
-                    </div>
-                    <div class="product-offer mb-30" style="height: 200px;">
-                        <img class="img-fluid" src="assets/img/offer-2.jpg" alt="">
-                        <div class="offer-text">
-                            <h6 class="text-white text-uppercase">Save 20%</h6>
-                            <h3 class="text-white mb-3">Special Offer</h3>
-                            <a href="" class="btn btn-primary">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
         <!-- Carousel End -->
@@ -175,64 +272,29 @@
         <div class="container-fluid pt-5 pb-3">
             <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Featured Products</span></h2>
             <div class="row px-xl-5">
+                
                 <c:forEach items="${requestScope.lstProductFeatured}" var="p">
-                    <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                        <div class="product-item bg-light mb-4">
-                            <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="${p.productImg}" alt="">
-                                <div class="product-action">
-                                </div>
-                            </div>
-                            <div class="text-center py-4">
-                                <a class="h6 text-decoration-none product-name" href="product-detail?productId=${p.productId}">${p.productName}</a>
-                                <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />
+                            <div class="col-3 mb-3">
+                                <div class="card">
+                                    <div class="imgBox product-img position-relative overflow-hidden">
+                                        <img src="${p.productImg}" alt="" class="mouse">
+                                    </div>
+                                    <div class="contentBox">
+                                        <h3>${p.productName}</h3>
+                                        <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />
+                                        <h2 class="price">${formattedPrice} VND</h2>
+                                        <a href="product-detail?productId=${p.productId}" class="buy">Buy Now</a>
+                                    </div>
 
-                                    <h5>${formattedPrice} VND</h5>
-                                    <!--<h6 class="text-muted ml-2"><del>$123.00</del></h6>-->
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small>(99)</small>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </c:forEach>
+                        </c:forEach>
             </div>
         </div>
         <!-- Products End -->
 
 
-        <!-- Offer Start -->
-        <div class="container-fluid pt-5 pb-3">
-            <div class="row px-xl-5">
-                <div class="col-md-6">
-                    <div class="product-offer mb-30" style="height: 300px;">
-                        <img class="img-fluid" src="assets/img/offer-1.jpg" alt="">
-                        <div class="offer-text">
-                            <h6 class="text-white text-uppercase">Save 20%</h6>
-                            <h3 class="text-white mb-3">Special Offer</h3>
-                            <a href="" class="btn btn-primary">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="product-offer mb-30" style="height: 300px;">
-                        <img class="img-fluid" src="assets/img/offer-2.jpg" alt="">
-                        <div class="offer-text">
-                            <h6 class="text-white text-uppercase">Save 20%</h6>
-                            <h3 class="text-white mb-3">Special Offer</h3>
-                            <a href="" class="btn btn-primary">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <!-- Offer End -->
 
 
@@ -240,34 +302,23 @@
         <div class="container-fluid pt-5 pb-3">
             <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Recent Products</span></h2>
             <div class="row px-xl-5">
+               
                 <c:forEach items="${requestScope.lstProductRecent}" var="p">
-                    <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                        <div class="product-item bg-light mb-4">
-                            <div class="product-img position-relative overflow-hidden">
-                                <img class="img-fluid w-100" src="${p.productImg}" alt="">
-                                <div class="product-action">
-                                </div>
-                            </div>
-                            <div class="text-center py-4">
-                                <a class="h6 text-decoration-none product-name" href="product-detail?productId=${p.productId}">${p.productName}</a>
-                                <div class="d-flex align-items-center justify-content-center mt-2">
-                                    <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />
+                            <div class="col-3 mb-3">
+                                <div class="card">
+                                    <div class="imgBox product-img position-relative overflow-hidden">
+                                        <img src="${p.productImg}" alt="" class="mouse">
+                                    </div>
+                                    <div class="contentBox">
+                                        <h3>${p.productName}</h3>
+                                        <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />
+                                        <h2 class="price">${formattedPrice} VND</h2>
+                                        <a href="product-detail?productId=${p.productId}" class="buy">Buy Now</a>
+                                    </div>
 
-                                    <h5>${formattedPrice} VND</h5>
-                                    <!--<h6 class="text-muted ml-2"><del>$123.00</del></h6>-->
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center mb-1">
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small class="fa fa-star text-primary mr-1"></small>
-                                    <small>(99)</small>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </c:forEach>
+                        </c:forEach>
             </div>
         </div>
         <!-- Products End -->

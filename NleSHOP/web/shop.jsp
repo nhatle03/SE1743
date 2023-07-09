@@ -35,6 +35,112 @@
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
             }
+            .card {
+                position: relative;
+                width: 320px;
+                height: 480px;
+                background: #191919;
+                border-radius: 20px;
+                overflow: hidden;
+            }
+
+            .card::before {
+                content: "";
+                position: absolute;
+                top: -50%;
+                width: 100%;
+                height: 100%;
+                background: #ffce00;
+                transform: skewY(345deg);
+                transition: 0.5s;
+            }
+
+            .card:hover::before {
+                top: -70%;
+                transform: skewY(390deg);
+            }
+
+            .card::after {
+                content: "CORSAIR";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                font-weight: 600;
+                font-size: 6em;
+                color: rgba(0, 0, 0, 0.1);
+            }
+
+            .card .imgBox {
+                position: relative;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-top: 20px;
+                z-index: 1;
+            }
+            /*
+            .card .imgBox img {
+                max-width: 100%;
+                
+                transition: .5s;
+            }
+            
+            .card:hover .imgBox img {
+                max-width: 50%;
+                  
+            }
+            */
+            .card .contentBox {
+                position: relative;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                z-index: 2;
+            }
+
+            .card .contentBox h3 {
+                font-size: 18px;
+                color: white;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .card .contentBox .price {
+                font-size: 24px;
+                color: white;
+                font-weight: 700;
+                letter-spacing: 1px;
+            }
+
+            .card .contentBox .buy {
+                position: relative;
+                top: 100px;
+                opacity: 0;
+                padding: 10px 30px;
+                margin-top: 15px;
+                color: #000000;
+                text-decoration: none;
+                background: #ffce00;
+                border-radius: 30px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: 0.5s;
+            }
+
+            .card:hover .contentBox .buy {
+                top: 0;
+                opacity: 1;
+            }
+
+            .mouse {
+                height: 300px;
+                width: auto;
+            }
+
         </style>
     </head>
 
@@ -118,49 +224,34 @@
 
                 <!-- Shop Product Start -->
                 <div class="col-lg-9 col-md-8">
-                    <div class="row pb-3">
-<!--                        <div class="col-12 pb-1">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Sorting</button>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#">Latest</a>
-                                            <a class="dropdown-item" href="#">Popularity</a>
-                                            <a class="dropdown-item" href="#">Best Rating</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
+                    <div class="row p-3">
+                        <!--                        <div class="col-12 pb-1">
+                                                    <div class="d-flex align-items-center justify-content-between mb-4">
+                                                        <div class="">
+                                                            <div class="btn-group">
+                                                                <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Sorting</button>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a class="dropdown-item" href="#">Latest</a>
+                                                                    <a class="dropdown-item" href="#">Popularity</a>
+                                                                    <a class="dropdown-item" href="#">Best Rating</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>-->
                         <c:forEach items="${requestScope.lstProduct}" var="p">
-                            <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
-                                <div class="product-item bg-light mb-4">
-                                    <div class="product-img position-relative overflow-hidden">
-                                        <img class="img-fluid w-100" src="${p.productImg}" alt="">
-                                        <a href="product-detail?productId=${p.productId}">
-                                            <div class="product-action">
-                                            </div>
-                                        </a>
+                            <div class="col-4 mb-3">
+                                <div class="card">
+                                    <div class="imgBox product-img position-relative overflow-hidden">
+                                        <img src="${p.productImg}" alt="" class="mouse">
                                     </div>
-                                    <div class="text-center py-4">
-                                        <a class="h6 text-decoration-none product-name" href="product-detail?productId=${p.productId}">${p.productName}</a>
-                                        <div class="d-flex align-items-center justify-content-center mt-2">
-                                            
-                                            <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />
+                                    <div class="contentBox">
+                                        <h3>${p.productName}</h3>
+                                        <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />
+                                        <h2 class="price">${formattedPrice} VND</h2>
+                                        <a href="product-detail?productId=${p.productId}" class="buy">Buy Now</a>
+                                    </div>
 
-                                    <h5>${formattedPrice} VND</h5>
-                                            <!--<h6 class="text-muted ml-2"><del>$123.00</del></h6>-->
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-center mb-1">
-                                            <small class="fa fa-star text-primary mr-1"></small>
-                                            <small class="fa fa-star text-primary mr-1"></small>
-                                            <small class="fa fa-star text-primary mr-1"></small>
-                                            <small class="fa fa-star text-primary mr-1"></small>
-                                            <small class="fa fa-star text-primary mr-1"></small>
-                                            <small>(99)</small>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </c:forEach>
