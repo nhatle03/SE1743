@@ -245,7 +245,7 @@
                                     <div class="imgBox product-img position-relative overflow-hidden">
                                         <img src="${p.productImg}" alt="" class="mouse">
                                     </div>
-                                    <div class="contentBox">
+                                    <div class="contentBox d-flex align-items-center" >
                                         <h3>${p.productName}</h3>
                                         <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />
                                         <h2 class="price">${formattedPrice} VND</h2>

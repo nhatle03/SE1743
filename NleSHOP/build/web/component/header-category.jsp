@@ -62,9 +62,9 @@
                             <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
                         </a>
                     </div>
-                    <div class="d-inline-flex align-items-center" style="background-color: #6C757D">
-                        <div class="btn-group" style="background-color: #6C757D">
-                            <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown"><i class="fas fa-user p-2"></i>${sessionScope.accountDetail.accountDetailName}</button>
+                    <div class="d-inline-flex align-items-center" >
+                        <div class="btn-group" >
+                            <button type="button" style="background-color: #FFD333; margin-left: 20px" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown"><i class="fas fa-user p-2"></i>${sessionScope.accountDetail.accountDetailName}</button>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <c:if test="${sessionScope.accountCur == null}">
                                     <a class="dropdown-item" type="button" href="sign-in">Sign in</a>

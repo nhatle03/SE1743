@@ -34,7 +34,7 @@
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
             }
-            
+
             .product-name {
                 overflow: hidden;
                 display: -webkit-box;
@@ -147,7 +147,7 @@
                 width: auto;
             }
 
-        
+
         </style>
     </head>
 
@@ -206,7 +206,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
         <!-- Carousel End -->
@@ -272,29 +272,29 @@
         <div class="container-fluid pt-5 pb-3">
             <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Featured Products</span></h2>
             <div class="row px-xl-5">
-                
-                <c:forEach items="${requestScope.lstProductFeatured}" var="p">
-                            <div class="col-3 mb-3">
-                                <div class="card">
-                                    <div class="imgBox product-img position-relative overflow-hidden">
-                                        <img src="${p.productImg}" alt="" class="mouse">
-                                    </div>
-                                    <div class="contentBox">
-                                        <h3>${p.productName}</h3>
-                                        <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />
-                                        <h2 class="price">${formattedPrice} VND</h2>
-                                        <a href="product-detail?productId=${p.productId}" class="buy">Buy Now</a>
-                                    </div>
 
-                                </div>
+                <c:forEach items="${requestScope.lstProductFeatured}" var="p">
+                    <div class="col-3 mb-3">
+                        <div class="card">
+                            <div class="imgBox product-img position-relative overflow-hidden">
+                                <img src="${p.productImg}" alt="" class="mouse">
                             </div>
-                        </c:forEach>
+                            <div class="contentBox text-center">
+                                <h3>${p.productName}</h3>
+                                <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />
+                                <h2 class="price">${formattedPrice} VND</h2>
+                                <a href="product-detail?productId=${p.productId}" class="buy">Buy Now</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </c:forEach>
             </div>
         </div>
         <!-- Products End -->
 
 
-        
+
         <!-- Offer End -->
 
 
@@ -302,23 +302,27 @@
         <div class="container-fluid pt-5 pb-3">
             <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Recent Products</span></h2>
             <div class="row px-xl-5">
-               
-                <c:forEach items="${requestScope.lstProductRecent}" var="p">
-                            <div class="col-3 mb-3">
-                                <div class="card">
-                                    <div class="imgBox product-img position-relative overflow-hidden">
-                                        <img src="${p.productImg}" alt="" class="mouse">
-                                    </div>
-                                    <div class="contentBox">
-                                        <h3>${p.productName}</h3>
-                                        <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />
-                                        <h2 class="price">${formattedPrice} VND</h2>
-                                        <a href="product-detail?productId=${p.productId}" class="buy">Buy Now</a>
-                                    </div>
 
-                                </div>
+                <c:forEach items="${requestScope.lstProductRecent}" var="p">
+                    <div class="col-3 mb-3">
+                        <div class="card">
+                            <div class="imgBox product-img position-relative overflow-hidden">
+                                <img src="${p.productImg}" alt="" class="mouse">
                             </div>
-                        </c:forEach>
+                            <div class="contentBox text-center">
+                                <h3 style="display: inline-block;
+                                    width: 180px;
+                                    white-space: nowrap;
+                                    overflow: hidden !important;
+                                    text-overflow: ellipsis;">${p.productName}</h3>
+                                <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />
+                                <h2 class="price">${formattedPrice} VND</h2>
+                                <a href="product-detail?productId=${p.productId}" class="buy">Buy Now</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </c:forEach>
             </div>
         </div>
         <!-- Products End -->
