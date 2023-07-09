@@ -88,7 +88,7 @@ public class SignInController extends HttpServlet {
                 session.setAttribute("accountCur", account);
                 AccountDetail accountDetail = accountDetailDAO.getOne(account.getAccountId());
                 session.setAttribute("accountDetail", accountDetail);
-                response.sendRedirect("/PRJSHOPASM");
+                response.sendRedirect("/NleSHOP");
                 return;
             }
         }
@@ -130,7 +130,7 @@ public class SignInController extends HttpServlet {
                 response.addCookie(cookieUsername);
                 response.addCookie(cookiePassword);
             }
-            response.sendRedirect("/PRJSHOPASM");
+            response.sendRedirect("/NleSHOP");
         }
     }
 
