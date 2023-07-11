@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="assets/img/logo1.png" type="image/x-icon" />
-        <title>QSneaker</title>
+        <title>NleShop</title>
 
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -42,11 +42,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="profile-img">
-                        <img src="assets/img/bg-smart-home-2.jpg" alt="" />
-                        <div class="file btn btn-lg btn-primary">
-                            Change Photo
-                            <input type="file" name="file" />
-                        </div>
+                        <img src="assets/img/avatar.png" alt="" />
                     </div>
                 </div>
                 <div class="row col-md-9">

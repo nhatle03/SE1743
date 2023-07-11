@@ -27,6 +27,120 @@
 
         <!-- Customized Bootstrap Stylesheet -->
         <link href="assets/css/style.css" rel="stylesheet">
+        <style>
+            .product-name {
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+            .card {
+                position: relative;
+                width: 320px;
+                height: 480px;
+                background: #191919;
+                border-radius: 20px;
+                overflow: hidden;
+            }
+
+            .card::before {
+                content: "";
+                position: absolute;
+                top: -50%;
+                width: 100%;
+                height: 100%;
+                background: #ffce00;
+                transform: skewY(345deg);
+                transition: 0.5s;
+            }
+
+            .card:hover::before {
+                top: -70%;
+                transform: skewY(390deg);
+            }
+
+            .card::after {
+                content: "CORSAIR";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                font-weight: 600;
+                font-size: 6em;
+                color: rgba(0, 0, 0, 0.1);
+            }
+
+            .card .imgBox {
+                position: relative;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-top: 20px;
+                z-index: 1;
+            }
+            /*
+            .card .imgBox img {
+                max-width: 100%;
+                
+                transition: .5s;
+            }
+            
+            .card:hover .imgBox img {
+                max-width: 50%;
+                  
+            }
+            */
+            .card .contentBox {
+                position: relative;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                z-index: 2;
+            }
+
+            .card .contentBox h3 {
+                font-size: 18px;
+                color: white;
+                font-weight: 500;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .card .contentBox .price {
+                font-size: 24px;
+                color: white;
+                font-weight: 700;
+                letter-spacing: 1px;
+            }
+
+            .card .contentBox .buy {
+                position: relative;
+                top: 100px;
+                opacity: 0;
+                padding: 10px 30px;
+                margin-top: 15px;
+                color: #000000;
+                text-decoration: none;
+                background: #ffce00;
+                border-radius: 30px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: 0.5s;
+            }
+
+            .card:hover .contentBox .buy {
+                top: 0;
+                opacity: 1;
+            }
+
+            .mouse {
+                height: 300px;
+                width: auto;
+            }
+
+        </style>
     </head>
 
     <body>
@@ -184,124 +298,15 @@
                     <div class="bg-light p-30">
                         <div class="nav nav-tabs mb-4">
                             <a class="nav-item nav-link text-dark active" data-toggle="tab" href="#tab-pane-1">Description</a>
-                            <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-2">Information</a>
-                            <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
+                            
                         </div>
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="tab-pane-1">
                                 <h4 class="mb-3">Product Description</h4>
                                 <p>${requestScope.product.productDescription}</p>
                             </div>
-                            <div class="tab-pane fade" id="tab-pane-2">
-                                <h4 class="mb-3">Additional Information</h4>
-                                <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam. Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item px-0">
-                                                Sit erat duo lorem duo ea consetetur, et eirmod takimata.
-                                            </li>
-                                            <li class="list-group-item px-0">
-                                                Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-                                            </li>
-                                            <li class="list-group-item px-0">
-                                                Duo amet accusam eirmod nonumy stet et et stet eirmod.
-                                            </li>
-                                            <li class="list-group-item px-0">
-                                                Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
-                                            </li>
-                                        </ul> 
-                                    </div>
-                                    <div class="col-md-6">
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item px-0">
-                                                Sit erat duo lorem duo ea consetetur, et eirmod takimata.
-                                            </li>
-                                            <li class="list-group-item px-0">
-                                                Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-                                            </li>
-                                            <li class="list-group-item px-0">
-                                                Duo amet accusam eirmod nonumy stet et et stet eirmod.
-                                            </li>
-                                            <li class="list-group-item px-0">
-                                                Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
-                                            </li>
-                                        </ul> 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="tab-pane-3">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h4 class="mb-4">1 review for "Product Name"</h4>
-                                        <div class="media mb-4">
-                                            <img src="assets/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                                            <div class="media-body">
-                                                <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
-                                                <div class="text-primary mb-2">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star-half-alt"></i>
-                                                    <i class="far fa-star"></i>
-                                                </div>
-                                                <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.</p>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="media mb-4">
-                                            <img src="assets/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                                            <div class="media-body">
-                                                <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
-                                                <div class="text-primary mb-2">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star-half-alt"></i>
-                                                    <i class="far fa-star"></i>
-                                                </div>
-                                                <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h4 class="mb-4">Leave a review</h4>
-                                        <small>Your email address will not be published. Required fields are marked *</small>
-                                        <div class="d-flex my-3">
-                                            <p class="mb-0 mr-2">Your Rating * :</p>
-                                            <div class="text-primary">
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                            </div>
-                                        </div>
-                                        <form>
-                                            <div class="form-group">
-                                                <label for="message">Your Review *</label>
-                                                <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="name">Your Name *</label>
-                                                <input type="text" class="form-control" id="name">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="email">Your Email *</label>
-                                                <input type="email" class="form-control" id="email">
-                                            </div>
-                                            <div class="d-flex">
-                                                <div class="form-group mb-0">
-                                                    <input type="submit" value="Submit Review" class="btn btn-primary px-3">
-                                                </div>
-                                                <div class="form-group mb-0" style="margin-left: 10px;">
-                                                    <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                            
+                            
                         </div>
                     </div>
                 </div>
@@ -313,28 +318,26 @@
         <!-- Products Start -->
         <div class="container-fluid py-5">
             <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">You May Also Like</span></h2>
-            <div class="row px-xl-5">
+            <div class="row px-xl-3">
                 <div class="col">
                     <div class="owl-carousel related-carousel">
                         <c:forEach items="${requestScope.lstRandProduct}" var="p">
-                            <div class="product-item bg-light">
-                                <div class="product-img position-relative overflow-hidden">
-                                    <img class="img-fluid w-100" src="${p.productImg}" alt="">
-                                </div>
-                                <div class="text-center py-4">
-                                    <a class="h6 text-decoration-none" href="product-detail?productId=${p.productId}">${p.productName}</a>
-                                    <div class="d-flex align-items-center justify-content-center mt-2">
+                            <div class="col-4 mb-3">
+                                <div class="card">
+                                    <div class="imgBox product-img position-relative overflow-hidden">
+                                        <img style="width: auto" src="${p.productImg}" alt="" class="mouse">
+                                    </div>
+                                    <div class="contentBox d-flex align-items-center" >
+                                        <h3 style="display: inline-block;
+                                            width: 180px;
+                                            white-space: nowrap;
+                                            overflow: hidden !important;
+                                            text-overflow: ellipsis;">${p.productName}</h3>
                                         <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />
-                                        <h5>${formattedPrice} VND</h5>
+                                        <h2 class="price">${formattedPrice} VND</h2>
+                                        <a href="product-detail?productId=${p.productId}" class="buy">Buy Now</a>
                                     </div>
-                                    <div class="d-flex align-items-center justify-content-center mb-1">
-                                        <small class="fa fa-star text-primary mr-1"></small>
-                                        <small class="fa fa-star text-primary mr-1"></small>
-                                        <small class="fa fa-star text-primary mr-1"></small>
-                                        <small class="fa fa-star text-primary mr-1"></small>
-                                        <small class="fa fa-star text-primary mr-1"></small>
-                                        <small>(99)</small>
-                                    </div>
+
                                 </div>
                             </div>
                         </c:forEach>

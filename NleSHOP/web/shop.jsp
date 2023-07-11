@@ -6,7 +6,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>MultiShop - Online Shop Website Template</title>
+        <title>NleShop</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Free HTML Templates" name="keywords">
         <meta content="Free HTML Templates" name="description">
@@ -240,13 +240,17 @@
                                                     </div>
                                                 </div>-->
                         <c:forEach items="${requestScope.lstProduct}" var="p">
-                            <div class="col-4 mb-3">
+                            <div class="col-4 mb-4">
                                 <div class="card">
                                     <div class="imgBox product-img position-relative overflow-hidden">
                                         <img src="${p.productImg}" alt="" class="mouse">
                                     </div>
                                     <div class="contentBox d-flex align-items-center" >
-                                        <h3>${p.productName}</h3>
+                                        <h3 style="display: inline-block;
+                                            width: 180px;
+                                            white-space: nowrap;
+                                            overflow: hidden !important;
+                                            text-overflow: ellipsis;">${p.productName}</h3>
                                         <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />
                                         <h2 class="price">${formattedPrice} VND</h2>
                                         <a href="product-detail?productId=${p.productId}" class="buy">Buy Now</a>
