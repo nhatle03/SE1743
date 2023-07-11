@@ -39,9 +39,13 @@
         <%@include file="component/header-shop.jsp" %>
         <!-- Topbar End -->
         <div class="container emp-profile">
+            <a HREF="javascript:javascript:history.go(-1)" class="fa-sharp fa-solid fa-left-long"> Back</a>
+            <a HREF="/NleSHOP/?#"  class="fa-solid fa-house" style="padding-left: 120px"> Home</a>
             <div class="row">
-                <div class="col-md-3">
-                    <div class="profile-img">
+
+                <div class="col-md-3 align-items-center">
+
+                    <div class="profile-img ">
                         <img src="assets/img/avatar.png" alt="" />
                     </div>
                 </div>
@@ -134,7 +138,7 @@
                         <%@include file="tab/profile/tab-delivering.jsp" %>
                         <!------------------Order Done----------------------->
                         <%@include file="tab/profile/tab-done-order.jsp" %>
-                        
+
                     </div>
                 </div>
             </div>
@@ -157,22 +161,22 @@
         $("#home").addClass("show active");
     </script>
     <script>
-      const addressTab = '<%= session.getAttribute("addressTab") %>';
-      if (addressTab !== 'null') {
-        $("#home-tab").removeClass("active");
-        $("#home").removeClass("show active");
-        $("#address-tab").addClass("active");
-        $("#address").addClass("show active");
-      }
+        const addressTab = '<%= session.getAttribute("addressTab") %>';
+        if (addressTab !== 'null') {
+            $("#home-tab").removeClass("active");
+            $("#home").removeClass("show active");
+            $("#address-tab").addClass("active");
+            $("#address").addClass("show active");
+        }
     </script>
     <script>
-      const message = '<%= session.getAttribute("msg") %>';
-      if (message !== 'null') {
-        var myModal = new bootstrap.Modal(document.getElementById("changePasswordModal"), {});
-        document.onreadystatechange = function () {
-            myModal.show();
-        };
-      }
+        const message = '<%= session.getAttribute("msg") %>';
+        if (message !== 'null') {
+            var myModal = new bootstrap.Modal(document.getElementById("changePasswordModal"), {});
+            document.onreadystatechange = function () {
+                myModal.show();
+            };
+        }
     </script>
     <%
         request.getSession().removeAttribute("msg");
