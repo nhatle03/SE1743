@@ -220,13 +220,13 @@
                             <input type="hidden" name="orderDetailProductImg" value="${requestScope.product.productImg}"> 
                             <input type="hidden" name="orderDetailProductName" value="${requestScope.product.productName}"> 
                             <input type="hidden" name="orderDetailPriceProduct" value="${requestScope.product.productPrice}"> 
-
+                            
                             <div class="d-flex mb-3">
                                 <strong class="text-dark mr-3">Sizes:</strong>
                                 <c:forEach items="${requestScope.lstProductSize}" var="s" varStatus="i">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input name="orderDetailSizeValue" value="${s.size.sizeValue}" <c:if test="${i.count eq 1}">checked=""</c:if> type="radio" class="custom-control-input" id="size-${s.productSizeId}" name="size">
-                                        <label class="custom-control-label" for="size-${s.productSizeId}">${s.size.sizeValue}</label>
+                                        <label onclick="modal" class="custom-control-label" for="size-${s.productSizeId}">${s.size.sizeValue}</label>
                                     </div>
                                 </c:forEach>
                             </div>
@@ -270,9 +270,7 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <div class="d-flex align-items-center justify-content-center mb-3">
-                                        800 available product
-                                    </div>
+                                    
                                 </div>
                                 <c:if test="${sessionScope.accountCur != null}">
                                     <button type="submit" class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To
@@ -311,15 +309,15 @@
                     <div class="bg-light p-30">
                         <div class="nav nav-tabs mb-4">
                             <a class="nav-item nav-link text-dark active" data-toggle="tab" href="#tab-pane-1">Description</a>
-                            
+
                         </div>
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="tab-pane-1">
                                 <h4 class="mb-3">Product Description</h4>
                                 <p>${requestScope.product.productDescription}</p>
                             </div>
-                            
-                            
+
+
                         </div>
                     </div>
                 </div>
@@ -382,6 +380,11 @@
 
         <!-- Template Javascript -->
         <script src="assets/js/main.js"></script>
+        <script>
+            function getQuantity(${requestScope.productSize.productSizeQuantity}) {
+                document.getElementById('modal').innerText = ${requestScope.productSize.productSizeQuantity} + "ava";
+            }
+        </script>
     </body>
 
 </html>
