@@ -10,6 +10,7 @@ import dao.CategoryDAO;
 import dao.ProductDAO;
 import entity.Account;
 import entity.AccountDetail;
+import entity.Cart;
 import entity.Category;
 import entity.Product;
 import java.io.IOException;
@@ -21,6 +22,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -92,7 +94,8 @@ public class IndexController extends HttpServlet {
             Account account = accountDAO.authenticate(username, password);
             if (account != null) {
                 session.setAttribute("accountCur", account);
-            AccountDetail accountDetail = accountDetailDAO.getOne(account.getAccountId());
+                session.setAttribute("lstCart", new ArrayList<Cart>());
+                AccountDetail accountDetail = accountDetailDAO.getOne(account.getAccountId());
                 session.setAttribute("accountDetail", accountDetail);
             }
         }

@@ -4,7 +4,10 @@
  */
 package controller;
 
+import dao.AccountContactDAO;
 import dao.CategoryDAO;
+import entity.Account;
+import entity.AccountContact;
 import entity.Cart;
 import entity.Category;
 import java.io.IOException;
@@ -19,10 +22,10 @@ import java.util.List;
 
 /**
  *
- * @author Admin
+ * @author DELL
  */
-@WebServlet(name = "CartController", urlPatterns = {"/cart"})
-public class CartController extends HttpServlet {
+@WebServlet(name = "CheckoutController", urlPatterns = {"/checkout"})
+public class CheckoutController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +44,10 @@ public class CartController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CartController</title>");            
+            out.println("<title>Servlet CheckoutController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CartController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CheckoutController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -65,6 +68,10 @@ public class CartController extends HttpServlet {
         HttpSession session = request.getSession();
         List<Cart> lstCart = (List<Cart>) session.getAttribute("lstCart");
         CategoryDAO categoryDAO = new CategoryDAO();
+        Account account = (Account) session.getAttribute("accountCur");
+        AccountContactDAO accountContactDAO = new AccountContactDAO();
+        List<AccountContact> lstAccountContact = accountContactDAO.getAll(account.getAccountId());
+        request.setAttribute("lstAccountContact", lstAccountContact);
         List<Category> lstCategory = categoryDAO.getAll();
         request.setAttribute("lstCategory", lstCategory);
         int totalPrice = 0;
@@ -72,7 +79,7 @@ public class CartController extends HttpServlet {
             totalPrice += c.getOrderDetailPriceProduct() * c.getOrderDetailQuantity();
         }
         request.setAttribute("totalPrice", totalPrice);
-        request.getRequestDispatcher("cart.jsp").forward(request, response);
+        request.getRequestDispatcher("checkout.jsp").forward(request, response);
     }
 
     /**
