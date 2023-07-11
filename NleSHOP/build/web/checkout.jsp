@@ -1,5 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,7 +71,8 @@
                                     <tr>
                                         <td class="align-middle"> <a class="d-flex" style="text-decoration: none; color: black; line-height: 1.6;" href="product-detail?productId=${c.productId}">
                                                 <img src="${c.orderDetailProductImg}" alt="" style="width: 50px;"><div style="margin-left: 7px; text-align: left !important;">${c.orderDetailProductName}</div></a></td>
-                                        <td class="align-middle">${c.orderDetailPriceProduct}VND</td>
+                                        <fmt:formatNumber value="${c.orderDetailPriceProduct}" pattern="#,###" var="formattedPrice" />
+                                            <td class="align-middle">${formattedPrice} VND</td>
                                         <td class="align-middle">${c.orderDetailQuantity}</td>
                                         <td class="align-middle">${c.orderDetailSizeValue}</td>
                                     </tr>
@@ -108,7 +110,8 @@
                         <div class="pt-2">
                             <div class="d-flex justify-content-between mt-2">
                                 <h5>Total</h5>
-                                <h5>${requestScope.totalPrice} VND</h5>
+                                <fmt:formatNumber value="${requestScope.totalPrice}" pattern="#,###" var="formattedPrice" />
+                                <h5>${formattedPrice} VND</h5>
                             </div>
                         </div>
                     </div>
