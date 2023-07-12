@@ -380,11 +380,7 @@
 
         <!-- Template Javascript -->
         <script src="assets/js/main.js"></script>
-        <script>
-            function getQuantity(${requestScope.productSize.productSizeQuantity}) {
-                document.getElementById('modal').innerText = ${requestScope.productSize.productSizeQuantity} + "ava";
-            }
-        </script>
+        
     </body>
 
 </html>
