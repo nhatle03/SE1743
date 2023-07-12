@@ -14,7 +14,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  *
  * @author DELL
@@ -56,8 +55,30 @@ public class ProductSizeDAO {
         }
         return null;
     }
-    
+
+    public int ProductQuantity(int productId, int sizeId) {
+
+        String sql = "select productSizeQuantity from ProductSize where productId = ? And sizeId = ?";//
+
+        try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
+            ps.setObject(1, productId);
+            ps.setObject(2, sizeId);
+            ResultSet rs = ps.executeQuery();
+            int quantity = 0;
+            
+            while (rs.next()) {
+                
+                quantity = rs.getInt("productSizeQuantity");
+            }
+            return quantity;
+            
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+        return 0;
+    }
+
     public static void main(String[] args) {
-        System.out.println(new ProductSizeDAO().getAll(12));
+        System.out.println(new ProductSizeDAO().ProductQuantity(5,7));
     }
 }

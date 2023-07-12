@@ -220,15 +220,17 @@
                             <input type="hidden" name="orderDetailProductImg" value="${requestScope.product.productImg}"> 
                             <input type="hidden" name="orderDetailProductName" value="${requestScope.product.productName}"> 
                             <input type="hidden" name="orderDetailPriceProduct" value="${requestScope.product.productPrice}"> 
-                            
+
                             <div class="d-flex mb-3">
                                 <strong class="text-dark mr-3">Sizes:</strong>
+
                                 <c:forEach items="${requestScope.lstProductSize}" var="s" varStatus="i">
                                     <div class="custom-control custom-radio custom-control-inline">
-                                        <input name="orderDetailSizeValue" value="${s.size.sizeValue}" <c:if test="${i.count eq 1}">checked=""</c:if> type="radio" class="custom-control-input" id="size-${s.productSizeId}" name="size">
-                                        <label onclick="modal" class="custom-control-label" for="size-${s.productSizeId}">${s.size.sizeValue}</label>
+                                        <input onclick="displayRadioValue(this)" name="orderDetailSizeValue" value="${s.size.sizeId}" <c:if test="${i.count eq 1}"></c:if> type="radio" class="custom-control-input" id="size-${s.productSizeId}" name="size">
+                                        <label class="custom-control-label" for="size-${s.productSizeId}">${s.size.sizeValue}</label>
                                     </div>
                                 </c:forEach>
+
                             </div>
                             <!-- <div class="d-flex mb-4">
                                 <strong class="text-dark mr-3">Colors:</strong>
@@ -270,7 +272,10 @@
                                             </button>
                                         </div>
                                     </div>
-                                    
+                                    <div class="d-flex align-items-center justify-content-center mb-3">
+                                        <div id="quantity-size"></div>
+                                        <input type="hidden" name="xxx" id="quantity-size-input" value=""> 
+                                    </div>
                                 </div>
                                 <c:if test="${sessionScope.accountCur != null}">
                                     <button type="submit" class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To
@@ -282,8 +287,10 @@
                                             Add To Cart</button>
                                     </a>
                                 </c:if>
+
                             </div>
                         </form>
+                            
                         <!-- <div class="d-flex pt-2">
                             <strong class="text-dark mr-2">Share on:</strong>
                             <div class="d-inline-flex">
@@ -380,7 +387,33 @@
 
         <!-- Template Javascript -->
         <script src="assets/js/main.js"></script>
-        
+        <script>
+                            function displayRadioValue() {
+                                var ele = document.getElementsByName('orderDetailSizeValue');
+                                for (i = 0; i < ele.length; i++) {
+                                    if (ele[i].checked) {
+                                        addItemToCart(6, ele[i].value);
+                                    }     
+                                }
+                            }
+                            
+                            function addItemToCart(itemId, sizeId) {
+                                let url = "product-quantity?productId=" + itemId + "&sizeId=" + sizeId;
+                                const request = new XMLHttpRequest();
+                                request.open("GET", url, true);
+                                request.onload = function () {
+                                    if (this.readyState === 4 && this.status === 200) {
+                                        document.getElementById("quantity-size").innerHTML = this.responseText + "available product";
+                                        document.getElementById("quantity-size-input").value = this.responseText;
+                                        console.log(this.responseText);
+                                    } else {
+                                        console.log("error");
+                                    }
+                                };
+                                request.send(null);
+                            }
+        </script>
+
     </body>
 
 </html>

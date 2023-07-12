@@ -48,7 +48,6 @@ public class ProductDetailController extends HttpServlet {
             out.println("<title>Servlet ProductDetailController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProductDetailController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -69,13 +68,15 @@ public class ProductDetailController extends HttpServlet {
         ProductDAO productDAO = new ProductDAO();
         ProductImgDetailDAO productImgDetailDAO = new ProductImgDetailDAO();
         ProductSizeDAO productSizeDAO = new ProductSizeDAO();
-
+        
+        //int sizeId = Integer.parseInt(request.getParameter("sizeId"));
         int productId = Integer.parseInt(request.getParameter("productId"));
         Product product = productDAO.getOne(productId);
         List<ProductImgDetail> lstProductImgDetail = productImgDetailDAO.getAll(productId);
         List<ProductSize> lstProductSize = productSizeDAO.getAll(productId);
         List<Product> lstRandProduct = productDAO.getRandByCategoryId(6, product.getCategoryId(), productId);
-
+        
+        request.setAttribute("quantity", 0);
         request.setAttribute("product", product);
         request.setAttribute("lstRandProduct", lstRandProduct);
         request.setAttribute("lstProductImgDetail", lstProductImgDetail);
