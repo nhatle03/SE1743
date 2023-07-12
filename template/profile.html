@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="assets/img/logo1.png" type="image/x-icon" />
+    <title>QSneaker</title>
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!--Bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!--FontAwesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!--css file-->
+    <link rel="stylesheet" href="assets/css/profile.css" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row bg-secondary py-1 px-xl-5">
+        <div class="col-lg-6 d-none d-lg-block">
+          <div class="d-inline-flex align-items-center h-100">
+            <a class="text-body mr-3" href="">About</a>
+            <a class="text-body mr-3" href="">Contact</a>
+            <a class="text-body mr-3" href="">Help</a>
+            <a class="text-body mr-3" href="">FAQs</a>
+          </div>
+        </div>
+        <div class="col-lg-6 text-center text-lg-right">
+          <div class="d-inline-flex align-items-center">
+            <div class="btn-group">
+              <button
+                type="button"
+                class="btn btn-sm btn-light dropdown-toggle"
+                data-toggle="dropdown"
+              >
+                <i class="fas fa-user p-2"></i>My Account
+              </button>
+              <div class="dropdown-menu dropdown-menu-right">
+                <button class="dropdown-item" type="button">Sign in</button>
+                <button class="dropdown-item" type="button">Sign up</button>
+              </div>
+            </div>
+          </div>
+          <div class="d-inline-flex align-items-center d-block d-lg-none">
+            <a href="" class="btn px-0 ml-2">
+              <i class="fas fa-heart text-dark"></i>
+              <span
+                class="badge text-dark border border-dark rounded-circle"
+                style="padding-bottom: 2px"
+                >0</span
+              >
+            </a>
+            <a href="" class="btn px-0 ml-2">
+              <i class="fas fa-shopping-cart text-dark"></i>
+              <span
+                class="badge text-dark border border-dark rounded-circle"
+                style="padding-bottom: 2px"
+                >0</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex"
+      >
+        <div class="col-lg-4">
+          <a href="" class="text-decoration-none">
+            <span class="h1 text-uppercase text-primary bg-dark px-2">PRJ</span>
+            <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1"
+              >Shop</span
+            >
+          </a>
+        </div>
+        <div class="col-lg-4 col-6 text-left">
+          <form action="">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search for products"
+              />
+              <div class="input-group-append">
+                <span class="input-group-text bg-transparent text-primary">
+                  <i class="fa fa-search"></i>
+                </span>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-4 col-6 text-right">
+          <p class="m-0">Customer Service</p>
+          <h5 class="m-0">+012 345 6789</h5>
+        </div>
+      </div>
+    </div>
+    <!-- Topbar End -->
+    <div class="container emp-profile">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="profile-img">
+            <img src="assets/img/bg-smart-home-2.jpg" alt="" />
+            <div class="file btn btn-lg btn-primary">
+              Change Photo
+              <input type="file" name="file" />
+            </div>
+          </div>
+        </div>
+        <div class="row col-md-9">
+          <div class="col-md-9">
+            <div class="profile-head">
+              <h5>Quoc Phung</h5>
+              <h6>Email: quyquoc2002@gmail.com</h6>
+              <!--                            <p class="proile-rating">RANKINGS : <span>8/10</span></p>-->
+            </div>
+          </div>
+          <div class="col-md-3">
+            <a
+              class="profile-edit-btn"
+              data-toggle="modal"
+              data-target="#changeInformModal"
+              href="javascript:void(0)"
+              >edit profile</a
+            >
+          </div>
+          <div class="col-md-12" style="margin-top: -50px;">
+            <ul
+              class="nav nav-tabs"
+              id="myTab"
+              role="tablist"
+              style="margin-top: 50px"
+            >
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="home-tab"
+                  data-toggle="tab"
+                  href="#home"
+                  role="tab"
+                  aria-controls="home"
+                  aria-selected="true"
+                  >About</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="address-tab"
+                  data-toggle="tab"
+                  href="#address"
+                  role="tab"
+                  aria-controls="address"
+                  aria-selected="false"
+                  >Address Contact</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="delivering-tab"
+                  data-toggle="tab"
+                  href="#delivering"
+                  role="tab"
+                  aria-controls="delivering"
+                  aria-selected="false"
+                  >Delivering</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="done-order-tab"
+                  data-toggle="tab"
+                  href="#done-order"
+                  role="tab"
+                  aria-controls="done-order"
+                  aria-selected="false"
+                  >Done Order</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <!-- <div class="profile-work">
+                                                    <p>WORK LINK</p>
+                                                    <a href="">Website Link</a><br/>
+                                                    <a href="">Bootsnipp Profile</a><br/>
+                                                    <a href="">Bootply Profile</a>
+                                                    <p>SKILLS</p>
+                                                    <a href="">Web Designer</a><br/>
+                                                    <a href="">Web Developer</a><br/>
+                                                    <a href="">WordPress</a><br/>
+                                                    <a href="">WooCommerce</a><br/>
+                                                    <a href="">PHP, .Net</a><br/>
+                                                </div> -->
+        </div>
+        <div class="col-md-9">
+          <div class="tab-content profile-tab" id="myTabContent">
+            <!----------------USER ACCOUNT------------->
+            <div
+              class="tab-pane fade"
+              id="home"
+              role="tabpanel"
+              aria-labelledby="home-tab"
+            >
+              <div class="row">
+                <div class="col-md-6">
+                  <label><i class="fa-solid fa-envelope icon"></i>Email</label>
+                </div>
+                <div class="col-md-6">
+                  <p>quyquoc2002@gmail.com</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label><i class="fa-solid fa-signature icon"></i> Name</label>
+                </div>
+                <div class="col-md-4">
+                  <p>Quoc Phung</p>
+                </div>
+                <div class="col-md-2">
+                  <p><i class="fa-regular fa-pen-to-square"></i></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label
+                    ><i class="fa-solid fa-calendar-days icon"></i> Date Of
+                    Birth</label
+                  >
+                </div>
+                <div class="col-md-4">
+                  <p>11/09/2002</p>
+                </div>
+                <div class="col-md-2">
+                  <p><i class="fa-regular fa-pen-to-square"></i></p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label
+                    ><i class="fa-solid fa-calendar-days icon"></i> Date Of
+                    Creation</label
+                  >
+                </div>
+                <div class="col-md-6">
+                  <p>11/09/2002</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label><i class="fa-solid fa-lock icon"></i> Pass Word</label>
+                </div>
+                <div class="col-md-6">
+                  <p>
+                    <a
+                      data-toggle="modal"
+                      data-target="#changePasswordModal"
+                      href="javascript:void(0)"
+                      >Change</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!----------------END ACCOUNT------------->
+            <!----------------START ADDRESS------------->
+
+            <div
+              class="tab-pane fade"
+              id="address"
+              role="tabpanel"
+              aria-labelledby="address-tab"
+            >
+              <div class="row mb-5">
+                <div class="col-md-3 fw-bold d-flex justify-content-center">
+                  Name Contact
+                </div>
+                <div class="col-md-3 fw-bold d-flex justify-content-center">
+                  Phone Contact
+                </div>
+                <div class="col-md-3 fw-bold d-flex justify-content-center">
+                  Address Contact
+                </div>
+              </div>
+
+              <form
+                class="address-group shadow p-3 mb-4 bg-white rounded"
+                method="post"
+                action="addressEdit"
+              >
+                <!-- input -->
+                <div class="row">
+                  <div class="col-md-3">
+                    <input
+                      type="text"
+                      name="nameContact"
+                      class="form-control"
+                      value="${addressContact.nameContact}"
+                    />
+                  </div>
+                  <div class="col-md-3">
+                    <input
+                      type="text"
+                      name="phoneContact"
+                      class="form-control"
+                      value="${addressContact.phoneContact}"
+                      pattern="^[\w@_-]{8,30}$"
+                      title="Please enter real phone number"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      name="address"
+                      class="form-control"
+                      value="${addressContact.address}"
+                    />
+                  </div>
+                  <input type="hidden" name="id" value="${addressContact.id}" />
+                </div>
+                <!-- btn -->
+                <div class="row mt-2">
+                  <div class="col-md-3">
+                    <a
+                      class="btn-grad btn-cus"
+                      style="padding: 6px 12px; text-transform: none"
+                    >
+                      <i class="fa-solid fa-address-book"></i> Address
+                      default</a
+                    >
+                  </div>
+                  <div class="col-md-3"></div>
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <input
+                          type="submit"
+                          name="type"
+                          value="Delete"
+                          class="btn btn-secondary btn-cus"
+                        />
+                      </div>
+                      <div class="col-md-5">
+                        <input
+                          type="submit"
+                          name="type"
+                          value="Set Default"
+                          class="btn btn-secondary btn-cus"
+                        />
+                      </div>
+                      <div class="col-md-3">
+                        <input
+                          type="submit"
+                          name="type"
+                          value="Edit"
+                          class="btn btn-secondary btn-cus"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- end form -->
+              </form>
+              <!-- Add more -->
+              <form
+                class="address-group shadow p-3 mb-4 mt-5 bg-white rounded"
+                method="post"
+                action="addressEdit"
+              >
+                <!-- input -->
+                <div class="row">
+                  <div class="col-md-3">
+                    <input
+                      type="text"
+                      name="nameContact"
+                      class="form-control"
+                      placeholder="New name contact"
+                      required=""
+                    />
+                  </div>
+                  <div class="col-md-3">
+                    <input
+                      type="text"
+                      name="phoneContact"
+                      class="form-control"
+                      placeholder="New phone contact"
+                      required=""
+                      pattern="^[\w@_-]{8,30}$"
+                      title="Please enter real phone number"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      name="address"
+                      class="form-control"
+                      placeholder="New address contact"
+                      required=""
+                    />
+                  </div>
+                  <input type="hidden" name="id" value="${addressContact.id}" />
+                </div>
+                <!-- btn -->
+                <div class="row mt-2">
+                  <div class="col-md-3"></div>
+                  <div class="col-md-6"></div>
+                  <div class="col-md-3">
+                    <input
+                      type="submit"
+                      name="type"
+                      value="ADD MORE"
+                      class="btn-grad btn-cus"
+                      style="
+                        padding: 6px 12px;
+                        text-transform: none;
+                        border: none;
+                      "
+                    />
+                  </div>
+                </div>
+                <!-- end form -->
+              </form>
+            </div>
+            <!------------------delivering----------------------->
+            <div
+              class="tab-pane fade"
+              id="delivering"
+              role="tabpanel"
+              aria-labelledby="delivering-tab"
+            >
+              <table class="table shadow table-hover table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Name Contact</th>
+                    <th scope="col">Phone Contact</th>
+                    <th scope="col">Order Date</th>
+                    <th scope="col">View</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Quoc Phung</tda>
+                    <td>0911092002</td>
+                    <td>2023-05-24</td>
+                    <td><a data-toggle="modal" data-target="#modal-order-detail" href="javascript:void(0)"><i class="fa-solid fa-eye"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td scope="row">ádasd</td>
+                    <td>ádasd</tda>
+                    <td>ádasd</td>
+                    <td>ádasd</td>
+                    <td>ádasd</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!------------------Order Done----------------------->
+            <div
+              class="tab-pane fade"
+              id="done-order"
+              role="tabpanel"
+              aria-labelledby="done-order-tab"
+            >
+              <table class="table shadow table-hover table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Name Contact</th>
+                    <th scope="col">Phone Contact</th>
+                    <th scope="col">Order Date</th>
+                    <th scope="col">Done Date</th>
+                    <th scope="col">View</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Quoc Phung</tda>
+                    <td>0911092003</td>
+                    <td>2023-05-24</td>
+                    <td>2023-05-26</td>
+                    <td><i class="fa-solid fa-eye"></i></td>
+                  </tr>
+                  <tr>
+                    <td scope="row">ádasd</td>
+                    <td>ádasd</tda>
+                    <td>ádasd</td>
+                    <td>ádasd</td>
+                    <td>ádasd</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!------------------------MODAL CHANGE PASSWORD-------------------------->
+    <div id="changePasswordModal" class="modal fade" role="dialog">
+      <div class="modal-dialog" U>
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Change PassWord</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="changePW" method="post" id="reused_form">
+              <div class="form-group mt-4">
+                <label for="oldPass"> Old Password:</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="oldPass"
+                  name="oldPass"
+                  required
+                  maxlength="50"
+                />
+              </div>
+              <div class="form-group mt-4">
+                <label for="newPass"> New password:</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="newPass"
+                  name="newPass"
+                  required
+                  maxlength="50"
+                  pattern="^[\w@_-]{8,30}$"
+                />
+                <sub
+                  >Password must alphanumeric (@, _ and - are also allowed) and
+                  be 8 - 20 characters
+                </sub>
+              </div>
+              <div class="form-group mt-4">
+                <label for="reNewPass"> Repeat new password:</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="reNewPass"
+                  name="reNewPass"
+                  required
+                  maxlength="50"
+                />
+              </div>
+              <button
+                type="submit"
+                class="btn-grad mt-3"
+                id="btnChangePW"
+                style="width: 100%; border: none"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!------------------------MODAL CHANGE INFORMATION-------------------------->
+    <div id="changeInformModal" class="modal fade" role="dialog">
+      <div class="modal-dialog" U>
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Change Information</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="changeInf" method="post" id="reused_form">
+              <div class="form-group mt-4">
+                <label for="name"> Name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="nickName"
+                  placeholder="Quoc Phung"
+                />
+              </div>
+              <div class="form-group mt-4">
+                <label for="dob"> Date of Birth:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="dob"
+                  name="dob"
+                  placeholder="11/09/2002"
+                  pattern="^\d{4}[\-\/\s]?((((0[13578])|(1[02]))[\-\/\s]?(([0-2][0-9])|(3[01])))|(((0[469])|(11))[\-\/\s]?(([0-2][0-9])|(30)))|(02[\-\/\s]?[0-2][0-9]))$"
+                  title="Enter a date in this format YYYY-MM-DD"
+                />
+              </div>
+
+              <button
+                type="submit"
+                class="btn-grad mt-3"
+                id="btnChangeInf"
+                style="width: 100%; border: none"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-------------------------------MODAL ORDER DETAIL------------------------------------->
+    <div id="modal-order-detail" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable" U>
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Order Detail</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="d-flex flex-row mb-4 pb-2">
+              <div class="flex-fill">
+                <h5 class="bold"><a class="text-danger" href="product-detail.html">Product Name Product Name Product Name</a></h5>
+                  <p class="text-muted"> Qt: 1 item</p> 
+                  <p class="text-muted"> Size: XXL</p> 
+
+                <h4 class="mb-3"><span class="small text-muted"> Unit Price: </span> 299.000 VND</h4>
+              </div>
+              <div>
+                <img class="align-self-center img-fluid"
+                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/6.webp" width="250">
+              </div>
+            </div>
+            <hr>
+            <div class="d-flex flex-row mb-4 pb-2">
+              <div class="flex-fill">
+                <h5 class="bold"><a class="text-danger" href="product-detail.html">Product Name Product Name Product Name</a></h5>
+                  <p class="text-muted"> Qt: 1 item</p> 
+                  <p class="text-muted"> Size: XXL</p> 
+
+                <h4 class="mb-3"><span class="small text-muted"> Unit Price: </span> 299.000 VND</h4>
+              </div>
+              <div>
+                <img class="align-self-center img-fluid"
+                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/6.webp" width="250">
+              </div>
+            </div>
+            <hr>
+            <div class="d-flex flex-row mb-4 pb-2">
+              <div class="flex-fill">
+                <h5 class="bold"><a class="text-danger" href="product-detail.html">Product Name Product Name Product Name</a></h5>
+                  <p class="text-muted"> Qt: 1 item</p> 
+                  <p class="text-muted"> Size: XXL</p> 
+
+                <h4 class="mb-3"><span class="small text-muted"> Unit Price: </span> 299.000 VND</h4>
+              </div>
+              <div>
+                <img class="align-self-center img-fluid"
+                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/6.webp" width="250">
+              </div>
+            </div>
+            <hr>
+            <div class="d-flex flex-row mb-4 pb-2">
+              <div class="flex-fill">
+                <h5 class="bold"><a class="text-danger" href="product-detail.html">Product Name Product Name Product Name</a></h5>
+                  <p class="text-muted"> Qt: 1 item</p> 
+                  <p class="text-muted"> Size: XXL</p> 
+
+                <h4 class="mb-3"><span class="small text-muted"> Unit Price: </span> 299.000 VND</h4>
+              </div>
+              <div>
+                <img class="align-self-center img-fluid"
+                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/6.webp" width="250">
+              </div>
+            </div>
+            <hr>
+            <div class="d-flex flex-row mb-4 pb-2">
+              <div class="flex-fill">
+                <h5 class="bold"><a class="text-danger" href="product-detail.html">Product Name Product Name Product Name</a></h5>
+                  <p class="text-muted"> Qt: 1 item</p> 
+                  <p class="text-muted"> Size: XXL</p> 
+
+                <h4 class="mb-3"><span class="small text-muted"> Unit Price: </span> 299.000 VND</h4>
+              </div>
+              <div>
+                <img class="align-self-center img-fluid"
+                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/6.webp" width="250">
+              </div>
+            </div>
+            <hr>
+            <div class="d-flex flex-row mb-4 pb-2">
+              <div class="flex-fill">
+                <h5 class="bold"><a class="text-danger" href="product-detail.html">Product Name Product Name Product Name</a></h5>
+                  <p class="text-muted"> Qt: 1 item</p> 
+                  <p class="text-muted"> Size: XXL</p> 
+
+                <h4 class="mb-3"><span class="small text-muted"> Unit Price: </span> 299.000 VND</h4>
+              </div>
+              <div>
+                <img class="align-self-center img-fluid"
+                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/6.webp" width="250">
+              </div>
+            </div>
+            <hr>
+            
+          <div class="modal-footer">
+            <h3>Total Money: 1.000.000VND</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // const message = '<%= session.getAttribute("message") %>';
+    // if (message !== 'null') {
+    //     alert(message);
+    // }
+
+    const messageEdited = '<%= session.getAttribute("messageEdited") %>';
+    if (messageEdited === "address edited") {
+      $("#address-tab").addClass("active");
+      $("#address").addClass("show active");
+    } else {
+      $("#delivering-tab").addClass("active");
+      $("#delivering").addClass("show active");
+    }
+  </script>
+</html>
