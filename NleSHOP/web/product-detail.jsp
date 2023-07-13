@@ -226,7 +226,7 @@
 
                                 <c:forEach items="${requestScope.lstProductSize}" var="s" varStatus="i">
                                     <div class="custom-control custom-radio custom-control-inline">
-                                        <input onclick="displayRadioValue(this)" name="orderDetailSizeValue" value="${s.size.sizeId}" <c:if test="${i.count eq 1}"></c:if> type="radio" class="custom-control-input" id="size-${s.productSizeId}" name="size">
+                                        <input required="" onclick="displayRadioValue(this)" name="orderDetailSizeValue" value="${s.size.sizeId}" <c:if test="${i.count eq 1}"></c:if> type="radio" class="custom-control-input" id="size-${s.productSizeId}" name="size">
                                         <label class="custom-control-label" for="size-${s.productSizeId}">${s.size.sizeValue}</label>
                                     </div>
                                 </c:forEach>
@@ -392,7 +392,7 @@
                                 var ele = document.getElementsByName('orderDetailSizeValue');
                                 for (i = 0; i < ele.length; i++) {
                                     if (ele[i].checked) {
-                                        addItemToCart(6, ele[i].value);
+                                        addItemToCart("${requestScope.product.productId}", ele[i].value);
                                     }     
                                 }
                             }

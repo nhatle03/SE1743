@@ -76,7 +76,7 @@ public class ProductDetailController extends HttpServlet {
         List<ProductSize> lstProductSize = productSizeDAO.getAll(productId);
         List<Product> lstRandProduct = productDAO.getRandByCategoryId(6, product.getCategoryId(), productId);
         
-        request.setAttribute("quantity", 0);
+        
         request.setAttribute("product", product);
         request.setAttribute("lstRandProduct", lstRandProduct);
         request.setAttribute("lstProductImgDetail", lstProductImgDetail);
