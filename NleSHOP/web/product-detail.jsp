@@ -227,6 +227,7 @@
                                 <c:forEach items="${requestScope.lstProductSize}" var="s" varStatus="i">
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input required="" onclick="displayRadioValue(this)" name="orderDetailSizeValue" value="${s.size.sizeId}" <c:if test="${i.count eq 1}"></c:if> type="radio" class="custom-control-input" id="size-${s.productSizeId}" name="size">
+                                        <input type="hidden" name="orderDetailSizeValue" value="${s.size.sizeValue}">
                                         <label class="custom-control-label" for="size-${s.productSizeId}">${s.size.sizeValue}</label>
                                     </div>
                                 </c:forEach>

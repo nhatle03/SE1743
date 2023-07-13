@@ -225,20 +225,20 @@
                 <!-- Shop Product Start -->
                 <div class="col-lg-9 col-md-8">
                     <div class="row p-3">
-                        <!--                        <div class="col-12 pb-1">
-                                                    <div class="d-flex align-items-center justify-content-between mb-4">
-                                                        <div class="">
-                                                            <div class="btn-group">
-                                                                <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Sorting</button>
-                                                                <div class="dropdown-menu dropdown-menu-right">
-                                                                    <a class="dropdown-item" href="#">Latest</a>
-                                                                    <a class="dropdown-item" href="#">Popularity</a>
-                                                                    <a class="dropdown-item" href="#">Best Rating</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>-->
+                        <div class="col-12 pb-1">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <div class="">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Sorting</button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="#">Latest</a>
+                                            <a class="dropdown-item" href="#">Popularity</a>
+                                            <a class="dropdown-item" href="#">Best Rating</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <c:forEach items="${requestScope.lstProduct}" var="p">
                             <div class="col-4 mb-4">
                                 <div class="card">

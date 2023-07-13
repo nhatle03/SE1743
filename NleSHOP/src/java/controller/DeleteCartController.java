@@ -4,9 +4,7 @@
  */
 package controller;
 
-import dao.CategoryDAO;
 import entity.Cart;
-import entity.Category;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -21,8 +19,8 @@ import java.util.List;
  *
  * @author Admin
  */
-@WebServlet(name = "CartController", urlPatterns = {"/cart"})
-public class CartController extends HttpServlet {
+@WebServlet(name = "DeleteCartController", urlPatterns = {"/delete-cart"})
+public class DeleteCartController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +39,10 @@ public class CartController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CartController</title>");            
+            out.println("<title>Servlet DeleteCartController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CartController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet DeleteCartController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -62,17 +60,12 @@ public class CartController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
+                HttpSession session = request.getSession();
         List<Cart> lstCart = (List<Cart>) session.getAttribute("lstCart");
-        CategoryDAO categoryDAO = new CategoryDAO();
-        List<Category> lstCategory = categoryDAO.getAll();
-        request.setAttribute("lstCategory", lstCategory);
-        int totalPrice = 0;
-        for (Cart c : lstCart) {
-            totalPrice += c.getOrderDetailPriceProduct() * c.getOrderDetailQuantity();
-        }
-        request.setAttribute("totalPrice", totalPrice);
-        request.getRequestDispatcher("cart.jsp").forward(request, response);
+        int index = Integer.parseInt(request.getParameter("index"));
+        System.out.println(index);
+        lstCart.remove(index);
+        response.sendRedirect("cart");
     }
 
     /**
@@ -86,13 +79,7 @@ public class CartController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        List<Cart> lstCart = (List<Cart>) session.getAttribute("lstCart");
-        String orderDetailQuantities[] = request.getParameterValues("orderDetailQuantity");
-        for (int i = 0; i < orderDetailQuantities.length; i++) {
-            lstCart.get(i).setOrderDetailQuantity(Integer.parseInt(orderDetailQuantities[i]));
-        }
-        response.sendRedirect("cart");
+        processRequest(request, response);
     }
 
     /**

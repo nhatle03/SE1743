@@ -94,7 +94,9 @@ public class IndexController extends HttpServlet {
             Account account = accountDAO.authenticate(username, password);
             if (account != null) {
                 session.setAttribute("accountCur", account);
-                session.setAttribute("lstCart", new ArrayList<Cart>());
+                if (session.getAttribute("lstCart") == null) {
+                    session.setAttribute("lstCart", new ArrayList<Cart>());
+                }
                 AccountDetail accountDetail = accountDetailDAO.getOne(account.getAccountId());
                 session.setAttribute("accountDetail", accountDetail);
             }

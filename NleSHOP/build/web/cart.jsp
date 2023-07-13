@@ -59,8 +59,9 @@
         <div class="container-fluid">
             <div class="row px-xl-5">
                 <div class="col-lg-8 table-responsive mb-5">
-                    <form action="cart" method="post">
-                        <c:if test="${sessionScope.lstCart.size() ne 0}">
+
+                    <c:if test="${sessionScope.lstCart.size() ne 0}">
+                        <form action="cart" method="post">
                             <table class="table table-light table-borderless table-hover text-center mb-0">
                                 <thead class="thead-dark">
                                     <tr>
@@ -72,14 +73,14 @@
                                     </tr>
                                 </thead>
                                 <tbody class="align-middle">
-                                    <c:forEach items="${sessionScope.lstCart}" var="c">
+                                    <c:forEach items="${sessionScope.lstCart}" var="c" varStatus="i">
                                         <tr>
                                             <td class="align-middle"> <a class="d-flex" style="text-decoration: none; color: black; line-height: 1.6;" href="product-detail?productId=${c.productId}">
                                                     <img src="${c.orderDetailProductImg}" alt="" style="width: 50px;"><div style="margin-left: 7px; text-align: left !important;">${c.orderDetailProductName}</div></a></td>
-                                            
+
                                             <fmt:formatNumber value="${c.orderDetailPriceProduct}" pattern="#,###" var="formattedPrice" />
                                             <td class="align-middle">${formattedPrice} VND</td>
-                        
+
                                             <td class="align-middle">
                                                 <div class="input-group quantity mx-auto" style="width: 50px;">
                                                     <input type="number" name="orderDetailQuantity" class="form-control form-control-sm bg-secondary border-0" value="${c.orderDetailQuantity}">
@@ -87,19 +88,19 @@
                                             </td>
                                             <td class="align-middle">${c.orderDetailSizeValue}</td>
                                             <td class="align-middle">
-                                                <a><button type="button" class="btn btn-sm btn-danger"> <i class="fa fa-times"></i></button></a>
+                                                <a href="delete-cart?index=${i.index}"><button type="button" class="btn btn-sm btn-danger"> <i class="fa fa-times"></i></button></a>
                                             </td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
                             </table>
-
-                            <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Update</button>
-                        </c:if>
-                        <c:if test="${sessionScope.lstCart.size() eq 0}">
-                            <h3>NO PRODUCT. LET SHOPPING</h3>
-                        </c:if>
-                    </form>
+                            
+                        <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Update</button>
+                        </form>
+                    </c:if>
+                    <c:if test="${sessionScope.lstCart.size() eq 0}">
+                        <h3>NO PRODUCT. LET SHOPPING</h3>
+                    </c:if>
                 </div>
                 <c:if test="${sessionScope.lstCart.size() ne 0}">
                     <div class="col-lg-4">
