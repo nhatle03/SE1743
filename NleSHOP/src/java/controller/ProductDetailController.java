@@ -100,6 +100,7 @@ public class ProductDetailController extends HttpServlet {
         int productId = Integer.parseInt(request.getParameter("productId"));
         int orderDetailQuantity = Integer.parseInt(request.getParameter("orderDetailQuantity"));
         String orderDetailSizeValue = request.getParameter("orderDetailSizeValue");
+        System.out.println(orderDetailSizeValue);
         String orderDetailProductName = request.getParameter("orderDetailProductName");
         String orderDetailProductImg = request.getParameter("orderDetailProductImg");
         int orderDetailPriceProduct = Integer.parseInt(request.getParameter("orderDetailPriceProduct"));

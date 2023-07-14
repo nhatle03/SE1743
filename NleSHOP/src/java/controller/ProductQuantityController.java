@@ -34,9 +34,9 @@ public class ProductQuantityController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         ProductSizeDAO productSizeDAO = new ProductSizeDAO();
         
-        int sizeId = Integer.parseInt(request.getParameter("sizeId"));
+        int sizeValue = Integer.parseInt(request.getParameter("sizeValue"));
         int productId = Integer.parseInt(request.getParameter("productId"));
-        int quantity = productSizeDAO.ProductQuantity(productId, sizeId);
+        int quantity = productSizeDAO.ProductQuantity(productId, sizeValue);
 
         try ( PrintWriter out = response.getWriter()) {
             out.println(quantity);

@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -55,6 +56,33 @@ public class AccountDAO {
         return null;
     }
     
+    public ArrayList<Account> getAll() {
+        ArrayList<Account> list = new ArrayList<>();
+        String sql = "Select * from Account";//
+
+        try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
+            
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Account account = Account.builder()
+                        .accountId(rs.getInt("accountId"))
+                        .accountEmail(rs.getString("accountEmail"))
+                        .accountPassword(rs.getString("accountPassword"))
+                        .role(Role.builder()
+                                .roleId(rs.getInt("roleId"))
+                                
+                                .build())
+                        .accountDeleted(rs.getBoolean("accountDeleted"))
+                        .build();            
+                list.add(account);
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+        return null;
+    }
     public int register(Account obj) {
         int check = 0;
         String sql = "INSERT INTO Account(accountEmail, accountPassword, roleId, accountDeleted)"
@@ -107,6 +135,6 @@ public class AccountDAO {
     }
     
     public static void main(String[] args) {
-        System.out.println(new AccountDAO().authenticate("quocpqhe163061@fpt.edu.vn", "123456"));
+        System.out.println(new AccountDAO().getAll());
     }
 }

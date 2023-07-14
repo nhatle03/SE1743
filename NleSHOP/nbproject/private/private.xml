@@ -3,8 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/controller/IndexController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/checkout.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/shop.jsp</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/cart.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/controller/CartController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/dao/AccountContactDAO.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/product-detail.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/entity/AccountContact.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/controller/ProductQuantityController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/controller/ProductDetailController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/controller/CheckoutController.java</file>
         </group>
     </open-files>
 </project-private>

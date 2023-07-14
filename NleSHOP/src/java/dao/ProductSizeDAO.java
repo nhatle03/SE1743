@@ -56,13 +56,13 @@ public class ProductSizeDAO {
         return null;
     }
 
-    public int ProductQuantity(int productId, int sizeId) {
+    public int ProductQuantity(int productId, int sizeValue) {
 
-        String sql = "select productSizeQuantity from ProductSize where productId = ? And sizeId = ?";//
+        String sql = "select ps.productSizeQuantity from ProductSize ps join Size s On ps.sizeId = s.sizeId  where productId = ? And sizeValue = ?";//
 
         try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
             ps.setObject(1, productId);
-            ps.setObject(2, sizeId);
+            ps.setObject(2, sizeValue);
             ResultSet rs = ps.executeQuery();
             int quantity = 0;
             
@@ -76,6 +76,20 @@ public class ProductSizeDAO {
             e.printStackTrace(System.out);
         }
         return 0;
+    }
+    public boolean add(int productId, int sizeId) {
+        int check = 0;
+        String sql = "INSERT INTO ProductSize(productId, sizeId, productSizeQuantity)"
+                + " VALUES(?, ?, ?)";
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareStatement(sql);) {
+            ps.setObject(1, productId);
+            ps.setObject(2, sizeId);
+            ps.setObject(3, 0);
+            check = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+        return check > 0;
     }
 
     public static void main(String[] args) {

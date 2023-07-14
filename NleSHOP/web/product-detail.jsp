@@ -226,11 +226,13 @@
 
                                 <c:forEach items="${requestScope.lstProductSize}" var="s" varStatus="i">
                                     <div class="custom-control custom-radio custom-control-inline">
-                                        <input required="" onclick="displayRadioValue(this)" name="orderDetailSizeValue" value="${s.size.sizeId}" <c:if test="${i.count eq 1}"></c:if> type="radio" class="custom-control-input" id="size-${s.productSizeId}" name="size">
-                                        <input type="hidden" name="orderDetailSizeValue" value="${s.size.sizeValue}">
+                                        <input required="" onclick="displayQuantity(this)" name="orderDetailSizeValue" value="${s.size.sizeValue}" <c:if test="${i.count eq 1}"></c:if> type="radio" class="custom-control-input" id="size-${s.productSizeId}" name="size">
+                                        
                                         <label class="custom-control-label" for="size-${s.productSizeId}">${s.size.sizeValue}</label>
+                                        
                                     </div>
                                 </c:forEach>
+                                
 
                             </div>
                             <!-- <div class="d-flex mb-4">
@@ -389,7 +391,7 @@
         <!-- Template Javascript -->
         <script src="assets/js/main.js"></script>
         <script>
-                            function displayRadioValue() {
+                            function displayQuantity() {
                                 var ele = document.getElementsByName('orderDetailSizeValue');
                                 for (i = 0; i < ele.length; i++) {
                                     if (ele[i].checked) {
@@ -398,8 +400,8 @@
                                 }
                             }
                             
-                            function addItemToCart(itemId, sizeId) {
-                                let url = "product-quantity?productId=" + itemId + "&sizeId=" + sizeId;
+                            function addItemToCart(itemId, sizeValue) {
+                                let url = "product-quantity?productId=" + itemId + "&sizeValue=" + sizeValue;
                                 const request = new XMLHttpRequest();
                                 request.open("GET", url, true);
                                 request.onload = function () {

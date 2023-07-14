@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,6 +94,36 @@ public class ProductDAO {
             ResultSet rs = ps.executeQuery();
 
             List<Product> list = new ArrayList<>();//
+            while (rs.next()) {
+                Product s = Product.builder()
+                        .productId(rs.getInt("productId"))
+                        .productName(rs.getString("productName"))
+                        .productImg(rs.getString("productImg"))
+                        .productPrice(rs.getInt("productPrice"))
+                        .productDescription(rs.getString("productDescription"))
+                        .categoryId(rs.getInt("categoryId"))
+                        .productIsFeatured(rs.getBoolean("productIsFeatured"))
+                        .productIsRecent(rs.getBoolean("productIsRecent"))
+                        .productDeleted(rs.getBoolean("productDeleted"))
+                        .build();
+                list.add(s);
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+        return null;
+    }
+    
+    public ArrayList<Product> getAll() {
+        ArrayList<Product> list = new ArrayList<>();
+        String sql = "SELECT * FROM Product";
+        
+        try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
+            
+            ResultSet rs = ps.executeQuery();
+
+           
             while (rs.next()) {
                 Product s = Product.builder()
                         .productId(rs.getInt("productId"))
@@ -385,9 +416,52 @@ public class ProductDAO {
         }
         return null;
     }
+    public int add(Product obj) {
+        int check = 0;
+        String sql = "INSERT [dbo].[Product] ([productName], [productImg], [productPrice], [productDescription], [categoryId], [productIsFeatured], [productIsRecent], [productDeleted])"
+                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = (con != null) ? con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS) : null;) {
+            ps.setObject(1, obj.getProductName());
+            ps.setObject(2, obj.getProductImg());
+            ps.setObject(3, obj.getProductPrice());
+            ps.setObject(4, obj.getProductDescription());
+            ps.setObject(5, obj.getCategoryId());
+            ps.setObject(6, obj.isProductIsFeatured());
+            ps.setObject(7, obj.isProductIsRecent());
+            ps.setObject(8, obj.isProductDeleted());
+
+            check = ps.executeUpdate();
+            if (check > 0) {
+                ResultSet rs = ps.getGeneratedKeys();
+                rs.next();
+                return rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+        return 0;
+    }
+     public boolean update(Product obj, int productId) {
+        int check = 0;
+        String sql = "UPDATE Product SET productName = ?, categoryId = ?, productPrice = ?, productIsFeatured = ?, productIsRecent = ?, productDescription = ? WHERE productId = ?";
+
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareStatement(sql);) {
+            ps.setObject(1, obj.getProductName());
+            ps.setObject(2, obj.getCategoryId());
+            ps.setObject(3, obj.getProductPrice());
+            ps.setObject(4, obj.isProductIsFeatured());
+            ps.setObject(5, obj.isProductIsRecent());
+            ps.setObject(6, obj.getProductDescription());
+            ps.setObject(7, productId);
+            check = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+        return check > 0;
+    }
 
     public static void main(String[] args) {
         String[] i = {"1", "2", "3"};
-        System.out.println(new ProductDAO().getListProductPerPage(4, 2, i, "2000000", "5000000"));
+        System.out.println(new ProductDAO().getAll());
     }
 }

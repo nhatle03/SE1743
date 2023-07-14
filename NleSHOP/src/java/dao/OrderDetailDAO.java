@@ -6,15 +6,44 @@ package dao;
 
 import connection.SQLServerConnection;
 import entity.Cart;
+import entity.OrderDetail;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Admin
  */
 public class OrderDetailDAO {
+    public List<OrderDetail> getAllOrderDetail(int orderId) {
+        String sql = "select * from [OrderDetail] where orderId = ? ";//
+
+        try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
+            ps.setObject(1, orderId);
+            ResultSet rs = ps.executeQuery();
+            List<OrderDetail> list = new ArrayList<>();//
+            while (rs.next()) {
+                OrderDetail obj = OrderDetail.builder()
+                        .orderId(rs.getInt("orderId"))
+                        .productId(rs.getInt("productId"))
+                        .orderDetailProductImg(rs.getString("orderDetailProductImg"))
+                        .orderDetailProductName(rs.getString("orderDetailProductName"))
+                        .orderDetailPriceProduct(rs.getInt("orderDetailPriceProduct"))
+                        .orderDetailSizeValue(rs.getString("orderDetailSizeValue"))
+                        .orderDetailQuantity(rs.getInt("orderDetailQuantity"))
+                        .build();
+                list.add(obj);
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+        return null;
+    }
     public boolean add(Cart obj, int orderId) {
         int check = 0;
         String sql = "INSERT INTO OrderDetail(orderId, productId, orderDetailProductImg, orderDetailProductName, orderDetailPriceProduct, orderDetailSizeValue, orderDetailQuantity)"
