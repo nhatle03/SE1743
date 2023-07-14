@@ -23,7 +23,7 @@
         <%@include file="common/admin-nav.jsp"%>
         
         <c:if test="${accountCur eq null}">
-            <c:redirect url="login.jsp"/>
+            <c:redirect url="error.jsp"/>
         </c:if>
         
         <!-- Cover -->
