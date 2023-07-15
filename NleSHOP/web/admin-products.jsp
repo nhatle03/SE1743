@@ -4,7 +4,9 @@
     Author     : Shado
 --%>
 
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <div class="right-side mb-5">
     <div class="row title">
@@ -87,7 +89,6 @@
                         <th>Ảnh</th>
                         <th>Mã SP</th>
                         <th>Tên sản phẩm</th>
-                        <th>Số lượng</th>
                         <th>Giá</th>
                         <th>Trạng thái</th>
                         <th>Chức năng</th>
@@ -102,7 +103,7 @@
                         <td>${i.productName}</td>
                         
                         <td><fmt:formatNumber type="number" maxFractionDigits="3" value="${i.productPrice}"/><sup>đ</sup></td>
-                        
+                        <td>${i.productStatusId == 1 ? "Còn hàng" : i.productStatusId == 2 ? "Giảm giá" : i.productStatusId == 3 ? "Hết hàng" : "Ngừng kinh doanh"}</td>
                         <td>
                             <a href="#" data-toggle="modal" data-target="#myModal" class="g-color">Chi tiết</a>
                         </td>

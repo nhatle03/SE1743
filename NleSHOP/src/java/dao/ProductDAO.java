@@ -135,6 +135,7 @@ public class ProductDAO {
                         .productIsFeatured(rs.getBoolean("productIsFeatured"))
                         .productIsRecent(rs.getBoolean("productIsRecent"))
                         .productDeleted(rs.getBoolean("productDeleted"))
+                        .productStatusId(rs.getInt("productStatusId"))
                         .build();
                 list.add(s);
             }

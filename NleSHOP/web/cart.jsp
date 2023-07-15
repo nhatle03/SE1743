@@ -6,7 +6,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Nle-Shop</title>
+        <title>Nle Shop</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Free HTML Templates" name="keywords">
         <meta content="Free HTML Templates" name="description">
@@ -88,14 +88,14 @@
                                             </td>
                                             <td class="align-middle">${c.orderDetailSizeValue}</td>
                                             <td class="align-middle">
-                                                <a href="delete-cart?index=${i.index}"><button type="button" class="btn btn-sm btn-danger"> <i class="fa fa-times"></i></button></a>
+                                                <a  href="delete-cart?index=${i.index}" ><button  type="button" onclick="return confirmDelete()" class="btn btn-sm btn-danger"> <i class="fa fa-times"></i></button></a>
                                             </td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
                             </table>
-                            
-                        <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Update</button>
+
+                            <button onclick="confirmUpdate()" class="btn btn-block btn-primary font-weight-bold my-3 py-3">Update</button>
                         </form>
                     </c:if>
                     <c:if test="${sessionScope.lstCart.size() eq 0}">
@@ -145,5 +145,14 @@
         <script src="mail/contact.js"></script>
         <!-- Template Javascript -->
         <script src="assets/js/main.js"></script>
+        <script>
+                                function confirmDelete() {
+                                    
+                                   return confirm("Are you sure you want to delete?");
+                                }
+                                function confirmUpdate() {
+                                    alert("Update successful");
+                                }
+        </script>
     </body>
 </html>

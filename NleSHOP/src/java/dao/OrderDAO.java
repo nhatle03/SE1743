@@ -7,6 +7,7 @@ package dao;
 import connection.SQLServerConnection;
 import entity.Account;
 import entity.Order;
+import entity.Product;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -90,6 +91,37 @@ public class OrderDAO {
         }
         return null;
     }
+    public ArrayList<Order> getAll() {
+        ArrayList<Order> list = new ArrayList<>();
+        String sql = "SELECT * FROM [Order]";
+
+        try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                Order obj = Order.builder()
+                        .orderId(rs.getInt("orderId"))
+                        .account(Account.builder()
+                                .accountId(rs.getInt("accountId"))
+                                
+                                .build())
+                        .orderCreateDate(rs.getDate("orderCreateDate"))
+                        .orderExpectedDate(rs.getDate("orderExpectedDate"))
+                        .orderDoneDate(rs.getDate("orderDoneDate"))
+                        .orderNameContact(rs.getString("orderNameContact"))
+                        .orderPhoneContact(rs.getString("orderPhoneContact"))
+                        .orderAddressContact(rs.getString("orderAddressContact"))
+                        .orderStatusId(rs.getInt("orderStatusId"))
+                        .build();
+                list.add(obj);
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+        return null;
+    }
 
     public int getSizeByOrderStatusIdForAdmin(int orderStatusId) {
 
@@ -147,6 +179,6 @@ public class OrderDAO {
         return check > 0;
     }
     public static void main(String[] args) {
-        System.out.println(new OrderDAO().getSizeByOrderStatusIdForAdmin(1));
+        System.out.println(new OrderDAO().getAll());
     }
 }

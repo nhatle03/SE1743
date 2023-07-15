@@ -7,9 +7,11 @@ package admin.controller;
 
 import dao.AccountDAO;
 import dao.CategoryDAO;
+import dao.OrderDAO;
 import dao.ProductDAO;
 import entity.Account;
 import entity.Category;
+import entity.Order;
 import entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -64,7 +66,9 @@ public class RedirectPage extends HttpServlet {
                     request.getRequestDispatcher("admin-index.jsp").forward(request, response);
                     break;
                 case 4:
+                    ArrayList<Order> listOrder = new OrderDAO().getAll();
                     request.setAttribute("page", 4);
+                    request.setAttribute("orders", listOrder);
                     request.getRequestDispatcher("admin-index.jsp").forward(request, response);
                     break;
                 default:

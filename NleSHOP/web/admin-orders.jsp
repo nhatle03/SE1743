@@ -4,7 +4,9 @@
     Author     : Shado
 --%>
 
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <div class="right-side mb-5">
     <div class="row title">
@@ -27,12 +29,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <c:forEach items="${orders}" var="i" varStatus="no">
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>${no.index+1}</td>
+                        <td>${i.orderId}</td>
+                        <td>${i.orderStatusId== 1 ? "new" : i.orderStatusId == 2 ? "ship" : "done"}</td>
+                        <td><a href="#" data-toggle="modal" data-target="#myModal" class="g-color">Chi tiết</a></td>
                     </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>

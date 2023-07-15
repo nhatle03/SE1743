@@ -4,7 +4,9 @@
     Author     : Shado
 --%>
 
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <div class="right-side mb-5">
     <div class="row title">
@@ -23,6 +25,7 @@
                         <th>STT</th>
                         <th>Email</th>
                         <th>Loại</th>
+                        <th>Trạng thái</th>
                         <th>Chi tiết</th>
                     </tr>
                 </thead>
@@ -32,7 +35,7 @@
                         <td>${no.index+1}</td>
                         <td>${i.accountEmail}</td>
                         <td>${i.role.roleId == 1 ? "Admin" : "Khách hàng"}</td>
-                        
+                        <td>${i.accountDeleted == false ? "Hoạt động" : "Bị vô hiệu hóa"}</td>
                         <td>
                             <a href="#" data-toggle="modal" data-target="#myModal" class="g-color">Chi tiết</a>
                         </td>
@@ -56,6 +59,7 @@
             </div>
             <div class="modal-body">
                 ...
+                
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-success btn-sm" data-dismiss="modal">Cập nhật thông tin</button>

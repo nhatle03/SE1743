@@ -280,7 +280,11 @@
                                 <img src="${p.productImg}" alt="" class="mouse">
                             </div>
                             <div class="contentBox text-center">
-                                <h3>${p.productName}</h3>
+                                <h3 style="display: inline-block;
+                                    width: 180px;
+                                    white-space: nowrap;
+                                    overflow: hidden !important;
+                                    text-overflow: ellipsis;">${p.productName}</h3>
                                 <fmt:formatNumber value="${p.productPrice}" pattern="#,###" var="formattedPrice" />
                                 <h2 class="price">${formattedPrice} VND</h2>
                                 <a href="product-detail?productId=${p.productId}" class="buy">Buy Now</a>
