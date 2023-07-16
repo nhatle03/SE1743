@@ -227,7 +227,7 @@
                     <div class="row p-3">
                         <div class="col-12 pb-1">
                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="">
+<!--                                <div class="">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Sorting</button>
                                         <div class="dropdown-menu dropdown-menu-right">
@@ -236,7 +236,7 @@
                                             <a class="dropdown-item" href="#">Best Rating</a>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                         <c:forEach items="${requestScope.lstProduct}" var="p">

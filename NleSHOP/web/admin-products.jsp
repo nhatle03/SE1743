@@ -35,17 +35,17 @@
                         <form action="addproduct" method="post" enctype="multipart/form-data" acceptcharset="UTF-8">
                             <div class="row px-3">
                                 <div class="form-group col-md-6">
-                                <input type="text" class="form-control" name="name" placeholder="Tên sản phẩm">
+                                    <input type="text" class="form-control" name="productName" placeholder="Tên sản phẩm">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <select class="form-control" name="category">
+                                    <select class="form-control" name="categoryId">
                                         <c:forEach items="${categories}" var="i" varStatus="no">
                                             <option value="${i.categoryId}">${i.categoryName}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" name="price" placeholder="Giá sản phẩm">
+                                    <input type="text" class="form-control" name="productPrice" placeholder="Giá sản phẩm">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" class="form-control" name="quantity" placeholder="Số lượng sản phẩm">
@@ -89,24 +89,33 @@
                         <th>Ảnh</th>
                         <th>Mã SP</th>
                         <th>Tên sản phẩm</th>
+                        <th>Phân loại</th>
                         <th>Giá</th>
                         <th>Trạng thái</th>
                         <th>Chức năng</th>
                     </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${products}" var="i" varStatus="no">
-                    <tr>
-                        <td>${no.index+1}</td>
-                        <td><img src="${i.productImg}" style="width: 100px !important;height: 100px !important;"></td>
-                        <td>${i.productId}</td>
-                        <td>${i.productName}</td>
-                        
-                        <td><fmt:formatNumber type="number" maxFractionDigits="3" value="${i.productPrice}"/><sup>đ</sup></td>
-                        <td>${i.productStatusId == 1 ? "Còn hàng" : i.productStatusId == 2 ? "Giảm giá" : i.productStatusId == 3 ? "Hết hàng" : "Ngừng kinh doanh"}</td>
-                        <td>
-                            <a href="#" data-toggle="modal" data-target="#myModal" class="g-color">Chi tiết</a>
-                        </td>
+                    <c:forEach items="${products}" var="i" varStatus="no">
+                        <tr>
+                            <td>${no.index+1}</td>
+                            <td><img src="${i.productImg}" style="width: 100px !important;height: 100px !important;"></td>
+                            <td>${i.productId}</td>
+                            <td>${i.productName}</td>
+                            <td> 
+                                <c:forEach items="${categories}" var="p">
+                                    <c:if test="${p.categoryId == i.categoryId}">
+                                        ${p.categoryName}
+                                    </c:if>
+                                </c:forEach>
+                            </td>
+                    <td><fmt:formatNumber type="number" maxFractionDigits="3" value="${i.productPrice}"/><sup>đ</sup></td>
+                    <td>${i.productStatusId == 1 ? "Còn hàng" : i.productStatusId == 2 ? "Giảm giá" : i.productStatusId == 3 ? "Hết hàng" : "Ngừng kinh doanh"}</td>
+                    
+                    <td>
+                        <a onclick="deleteProduct(${i.productId})" href="javascript:void(0)" class="g-color" style="color: red">Chi tiết</a>
+                       
+                    </td>
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -114,4 +123,38 @@
         </div>
     </div>
 </div>
+        
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >Chi tiết tài khoản</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+                
+            </div>
+            <div class="modal-footer">
+                <form action="delete-product" method="post">
+                
+                    <input type="hidden" id="product-remove-id" name="remove-id">
+                <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                </form>
+                
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Đóng</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
 
+                <script>
+                    function deleteProduct(id){
+                        document.getElementById("product-remove-id").value=id;
+                        $('#myModal').modal('show');
+                    }
+                </script>
+                

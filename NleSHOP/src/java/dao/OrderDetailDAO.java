@@ -25,7 +25,7 @@ public class OrderDetailDAO {
         try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
             ps.setObject(1, orderId);
             ResultSet rs = ps.executeQuery();
-            List<OrderDetail> list = new ArrayList<>();//
+            List<OrderDetail> list = new ArrayList<>();
             while (rs.next()) {
                 OrderDetail obj = OrderDetail.builder()
                         .orderId(rs.getInt("orderId"))
@@ -35,6 +35,7 @@ public class OrderDetailDAO {
                         .orderDetailPriceProduct(rs.getInt("orderDetailPriceProduct"))
                         .orderDetailSizeValue(rs.getString("orderDetailSizeValue"))
                         .orderDetailQuantity(rs.getInt("orderDetailQuantity"))
+                        .orderDetailTotalMoney(rs.getInt("orderDetailTotalMoney"))
                         .build();
                 list.add(obj);
             }
@@ -61,5 +62,9 @@ public class OrderDetailDAO {
             e.printStackTrace(System.out);
         }
         return check > 0;
+    }
+   
+    public static void main(String[] args) {
+         System.out.println(new OrderDetailDAO().getAllOrderDetail(6));
     }
 }

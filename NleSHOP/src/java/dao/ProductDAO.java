@@ -117,7 +117,7 @@ public class ProductDAO {
     
     public ArrayList<Product> getAll() {
         ArrayList<Product> list = new ArrayList<>();
-        String sql = "SELECT * FROM Product";
+        String sql = "SELECT * FROM Product Where productDeleted = 0";
         
         try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
             
@@ -144,6 +144,18 @@ public class ProductDAO {
             e.printStackTrace(System.out);
         }
         return null;
+    }
+     public boolean deleteProduct(int productId) {
+        int check = 0;
+        String sql = "UPDATE Product SET productDeleted = '1' WHERE productId= ?";
+
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareStatement(sql);) {
+            ps.setObject(1, productId);
+            check = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+        return check > 0;
     }
 
     public List<Product> getListProductPerPageByCategoryId(int numberProductPerPage, int pageCur, int categoryId, String[] sizeIds, String priceFrom, String priceTo) {
@@ -463,6 +475,6 @@ public class ProductDAO {
 
     public static void main(String[] args) {
         String[] i = {"1", "2", "3"};
-        System.out.println(new ProductDAO().getAll());
+        System.out.println(new ProductDAO().deleteProduct(1038));
     }
 }

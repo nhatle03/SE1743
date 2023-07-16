@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="assets/img/logo1.png" type="image/x-icon" />
-        <title>NleShop</title>
+        <title>QSneaker</title>
 
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -39,14 +39,14 @@
         <%@include file="component/header-shop.jsp" %>
         <!-- Topbar End -->
         <div class="container emp-profile">
-            <a HREF="javascript:javascript:history.go(-1)" class="fa-sharp fa-solid fa-left-long"> Back</a>
-            <a HREF="/NleSHOP/?#"  class="fa-solid fa-house" style="padding-left: 120px"> Home</a>
             <div class="row">
-
-                <div class="col-md-3 align-items-center">
-
-                    <div class="profile-img ">
-                        <img src="assets/img/avatar.png" alt="" />
+                <div class="col-md-3">
+                    <div class="profile-img">
+                        <img src="assets/img/bg-smart-home-2.jpg" alt="" />
+                        <div class="file btn btn-lg btn-primary">
+                            Change Photo
+                            <input type="file" name="file" />
+                        </div>
                     </div>
                 </div>
                 <div class="row col-md-9">
@@ -138,7 +138,7 @@
                         <%@include file="tab/profile/tab-delivering.jsp" %>
                         <!------------------Order Done----------------------->
                         <%@include file="tab/profile/tab-done-order.jsp" %>
-
+                        
                     </div>
                 </div>
             </div>
@@ -161,22 +161,22 @@
         $("#home").addClass("show active");
     </script>
     <script>
-        const addressTab = '<%= session.getAttribute("addressTab") %>';
-        if (addressTab !== 'null') {
-            $("#home-tab").removeClass("active");
-            $("#home").removeClass("show active");
-            $("#address-tab").addClass("active");
-            $("#address").addClass("show active");
-        }
+      const addressTab = '<%= session.getAttribute("addressTab") %>';
+      if (addressTab !== 'null') {
+        $("#home-tab").removeClass("active");
+        $("#home").removeClass("show active");
+        $("#address-tab").addClass("active");
+        $("#address").addClass("show active");
+      }
     </script>
     <script>
-        const message = '<%= session.getAttribute("msg") %>';
-        if (message !== 'null') {
-            var myModal = new bootstrap.Modal(document.getElementById("changePasswordModal"), {});
-            document.onreadystatechange = function () {
-                myModal.show();
-            };
-        }
+      const message = '<%= session.getAttribute("msg") %>';
+      if (message !== 'null') {
+        var myModal = new bootstrap.Modal(document.getElementById("changePasswordModal"), {});
+        document.onreadystatechange = function () {
+            myModal.show();
+        };
+      }
     </script>
     <%
         request.getSession().removeAttribute("msg");

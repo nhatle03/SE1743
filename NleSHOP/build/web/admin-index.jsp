@@ -21,11 +21,11 @@
     </head>
     <body>
         <%@include file="common/admin-nav.jsp"%>
-        
+
         <c:if test="${accountCur eq null}">
             <c:redirect url="error.jsp"/>
         </c:if>
-        
+
         <!-- Cover -->
         <div id="main-contain" class="container">
             <div class="row">
@@ -57,7 +57,7 @@
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="redirectpage?page=4">
-                                                <i class="mr-2"></i> Quản lý đơn hàng (coming soon)
+                                                <i class="mr-2"></i> Quản lý đơn hàng
                                             </a>
                                         </li>
                                     </ul>
@@ -100,6 +100,12 @@
                 $('#products').DataTable();
                 $('#orders').DataTable();
             });
+        </script>
+        <script>
+            var orderDetail = '${requestScope.orderDetail}';
+            if (orderDetail !== '') {
+                $('#orderDetailModal').modal('show');
+            }
         </script>
     </body>
 </html>
