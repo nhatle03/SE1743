@@ -4,14 +4,22 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/modal/profile/modal-order-detail.jsp</file>
-            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/modal/modal-order-detail.jsp</file>
-            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/tab/profile/tab-address.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/checkout.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/admin-products.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/admin-index.jsp</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/tab/profile/tab-delivering.jsp</file>
-            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/dao/AccountDetailDAO.java</file>
-            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/modal/profile/modal-change-infomation.jsp</file>
-            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/tab/profile/tab-done-order.jsp</file>
-            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/tab/profile/tab-about.jsp</file>
             <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/controller/ProfileController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/dao/OrderDetailDAO.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/admin-dashboard.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/controller/IndexController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/sign-in.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/controller/SignInController.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/dao/AccountDAO.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/profile.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/admin-orders.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/dao/ProductDAO.java</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/web/tab/profile/tab-done-order.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/GitHub/SE1743/NleSHOP/src/java/controller/api/GetOrderDetailAPI.java</file>
         </group>
     </open-files>
 </project-private>

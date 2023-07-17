@@ -7,9 +7,11 @@ package controller;
 import dao.AccountContactDAO;
 import dao.AccountDAO;
 import dao.AccountDetailDAO;
+import dao.OrderDAO;
 import entity.Account;
 import entity.AccountContact;
 import entity.AccountDetail;
+import entity.Order;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -19,6 +21,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -69,8 +72,15 @@ public class ProfileController extends HttpServlet {
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("accountCur");
         AccountContactDAO accountContactDAO = new AccountContactDAO();
+        OrderDAO orderDAO = new OrderDAO();
         List<AccountContact> lstAccountContact = accountContactDAO.getAll(account.getAccountId());
         request.setAttribute("lstAccountContact", lstAccountContact);
+        List<Order> lstDeliveringOrder = orderDAO.getAllByOrderStatusIdForUser(account.getAccountId(), 2);
+        List<Order> lstDoneOrder = orderDAO.getAllByOrderStatusIdForUser(account.getAccountId(), 3);
+        ArrayList<Order> listOrder = new OrderDAO().getAll();
+        request.setAttribute("lstDeliveringOrder", lstDeliveringOrder);
+        request.setAttribute("lstDoneOrder", lstDoneOrder);
+        request.setAttribute("orders", listOrder);
         request.getRequestDispatcher("profile.jsp").forward(request, response);
     }
 
@@ -91,7 +101,7 @@ public class ProfileController extends HttpServlet {
         Account account = (Account) session.getAttribute("accountCur");
         AccountContactDAO accountContactDAO = new AccountContactDAO();
         AccountDetail accountDetail = (AccountDetail) session.getAttribute("accountDetail");
-
+        
         String type = request.getParameter("type");
         switch (type) {
             case "changeInformation": {

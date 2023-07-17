@@ -36,7 +36,7 @@ public class ProductDAO {
                 + "	p.productDeleted\n"
                 + "from product p \n"
                 + "	JOIN ProductSize ps ON p.productId = ps.productId"
-                + " Where p.productPrice between ? and ? ";
+                + " Where p.productPrice between ? and ? and p.productDeleted = 0";
         if (sizeIds != null) {
             sql += " AND (";
             for (int i = 0; i < sizeIds.length - 1; i++) {
@@ -75,7 +75,7 @@ public class ProductDAO {
                 + "	p.productDeleted\n"
                 + "from product p \n"
                 + "	JOIN ProductSize ps ON p.productId = ps.productId"
-                + " Where p.productPrice between ? and ? ";
+                + " Where p.productPrice between ? and ? and p.productDeleted = 0";
         if (sizeIds != null) {
             sql += " AND (";
             for (int i = 0; i < sizeIds.length - 1; i++) {
@@ -173,7 +173,7 @@ public class ProductDAO {
                 + "	p.productDeleted\n"
                 + "from product p \n"
                 + "	JOIN ProductSize ps ON p.productId = ps.productId"
-                + " Where categoryId = ? And p.productPrice between ? and ? ";
+                + " Where categoryId = ? And p.productPrice between ? and ? and p.productDeleted = 0";
         if (sizeIds != null) {
             sql += " AND (";
             for (int i = 0; i < sizeIds.length - 1; i++) {
@@ -219,7 +219,7 @@ public class ProductDAO {
 
         String sql = "  Select * from \n"
                 + "Product p Join Category c ON p.categoryId = c.categoryId \n"
-                + "WHERE p.productName LIKE ? OR c.categoryName LIKE ?"
+                + "WHERE p.productName LIKE ? OR c.categoryName LIKE ? and p.productDeleted = 0"
                 + "	Order BY p.productId\n"
                 + "OFFSET ? ROWS \n"
                 + "FETCH NEXT ? ROWS ONLY";//
@@ -268,7 +268,7 @@ public class ProductDAO {
                 + "	p.productDeleted\n"
                 + "from product p \n"
                 + "	JOIN ProductSize ps ON p.productId = ps.productId"
-                + " Where categoryId = ? and p.productPrice between ? and ? ";
+                + " Where categoryId = ? and p.productPrice between ? and ? and p.productDeleted = 0";
         if (sizeIds != null) {
             sql += " AND (";
             for (int i = 0; i < sizeIds.length - 1; i++) {
@@ -298,7 +298,7 @@ public class ProductDAO {
 
         String sql = "SELECT COUNT(p.productId) as total from\n"
                 + "Product p Join Category c ON p.categoryId = c.categoryId \n"
-                + "WHERE p.productName LIKE ? OR c.categoryName LIKE ?";
+                + "WHERE p.productName LIKE ? OR c.categoryName LIKE ? and p.productDeleted = 0";
 
         try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
             ps.setObject(1, "%" + searchValue + "%");
@@ -317,7 +317,7 @@ public class ProductDAO {
 
     public List<Product> getAllByFeatured() {
 
-        String sql = "SELECT * FROM Product Where productIsFeatured = 1";//
+        String sql = "SELECT * FROM Product Where productIsFeatured = 1 and productDeleted = 0 ";//
 
         try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
             ResultSet rs = ps.executeQuery();
@@ -346,7 +346,7 @@ public class ProductDAO {
 
     public List<Product> getAllByRecent() {
 
-        String sql = "SELECT * FROM Product Where productIsRecent = 1";//
+        String sql = "SELECT * FROM Product Where productIsRecent = 1 and productDeleted = 0";//
 
         try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
             ResultSet rs = ps.executeQuery();
@@ -375,7 +375,7 @@ public class ProductDAO {
 
     public Product getOne(int productId) {
 
-        String sql = "Select * From Product Where productId = ?";//
+        String sql = "Select * From Product Where productId = ? ";//
 
         try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
             ps.setObject(1, productId);
@@ -402,7 +402,7 @@ public class ProductDAO {
     }
 
     public List<Product> getRandByCategoryId(int numberProduct, int categoryId, int productId) {
-        String sql = "SELECT TOP " + numberProduct + " * FROM product where categoryId = ? AND productId != ? ORDER BY NEWID()";//
+        String sql = "SELECT TOP " + numberProduct + " * FROM product where categoryId = ? AND productId != ? and productDeleted = 0 ORDER BY NEWID()";//
         try ( Connection connection = SQLServerConnection.getConnection();  PreparedStatement ps = connection.prepareStatement(sql);) {
             ps.setObject(1, categoryId);
             ps.setObject(2, productId);
@@ -475,6 +475,6 @@ public class ProductDAO {
 
     public static void main(String[] args) {
         String[] i = {"1", "2", "3"};
-        System.out.println(new ProductDAO().deleteProduct(1038));
+        System.out.println(new ProductDAO().size(i, "2168000", "2167000"));
     }
 }

@@ -118,7 +118,11 @@ public class SignInController extends HttpServlet {
         String password = request.getParameter("password");
         boolean isRemeberMe = request.getParameter("isRemeberMe") != null;
         Account account = accountDAO.authenticate(username, password);
-        if (account == null) {
+        if (account.isAccountDeleted() == true) {
+            request.setAttribute("msg", "Your account has been banned");
+            request.getRequestDispatcher("sign-in.jsp").forward(request, response);
+        }
+        else if (account == null) {
             request.setAttribute("msg", "Sign in Fail Username or pw wrong");
             request.getRequestDispatcher("sign-in.jsp").forward(request, response);
         } else {

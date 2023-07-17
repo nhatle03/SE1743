@@ -83,6 +83,20 @@ public class AccountDAO {
         }
         return null;
     }
+    
+    public boolean deleteProduct(int accountId) {
+        int check = 0;
+        String sql = "UPDATE Product SET accountDeleted = '1' WHERE accountId= ?";
+
+        try ( Connection con = SQLServerConnection.getConnection();  PreparedStatement ps = con.prepareStatement(sql);) {
+            ps.setObject(1, accountId);
+            check = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace(System.out);
+        }
+        return check > 0;
+    }
+    
     public int register(Account obj) {
         int check = 0;
         String sql = "INSERT INTO Account(accountEmail, accountPassword, roleId, accountDeleted)"

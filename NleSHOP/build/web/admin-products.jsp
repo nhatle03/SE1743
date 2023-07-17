@@ -113,7 +113,7 @@
                     <td>${i.productStatusId == 1 ? "Còn hàng" : i.productStatusId == 2 ? "Giảm giá" : i.productStatusId == 3 ? "Hết hàng" : "Ngừng kinh doanh"}</td>
                     
                     <td>
-                        <a onclick="deleteProduct(${i.productId})" href="javascript:void(0)" class="g-color" style="color: red">Chi tiết</a>
+                        <a onclick="deleteProduct(${i.productId})" href="javascript:void(0)" class="g-color" style="color: red">Xóa</a>
                        
                     </td>
                     </tr>
@@ -134,7 +134,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                Bạn chắc chắn là muốn xóa sản phẩm này ?
                 
             </div>
             <div class="modal-footer">
